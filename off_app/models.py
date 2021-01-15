@@ -18,8 +18,8 @@ class Category(models.Model):
 
 class ProductCategory(models.Model):
     """  """
-    id_product = models.PositiveIntegerField(null=False)
-    id_category = models.PositiveIntegerField(null=False)
+    id_product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    id_category = models.ForeignKey(Category, on_delete=models.CASCADE)
 
 
 class User(models.Model):
@@ -33,5 +33,5 @@ class User(models.Model):
 class Favorite(models.Model):
     """ """
     date = models.DateTimeField(auto_now_add=True)
-    id_user = models.IntegerField(null=False)
-    id_product = models.IntegerField(null=False)
+    id_user = models.ForeignKey(User, on_delete=models.CASCADE)
+    id_product = models.ForeignKey(Product, on_delete=models.CASCADE)
