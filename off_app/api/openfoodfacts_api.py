@@ -32,7 +32,4 @@ class ApiOff:
             # if res.status_code == 200:
             data_api = res.json()
             list_data += (data_api['products'])
-        print(list_data)
-
-"""a = Api()
-print(a.api_connection(1,50))"""
+        return list_data
