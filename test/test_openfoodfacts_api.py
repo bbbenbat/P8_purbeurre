@@ -30,4 +30,4 @@ def test_openfoodfacts_api():
                                          "lactose et protéines de lait, arômes.",
                   'product_name': 'prince', 'nutrition_grades_tags': ['c'], 'code': '7622210449283',
                   'url': 'https://fr.openfoodfacts.org/produit/7622210449283/prince-lu'}]
-    assert result == req
+    assert req == result
