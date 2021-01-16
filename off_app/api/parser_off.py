@@ -1,4 +1,5 @@
 """ This module parses the data. """
+from collections import OrderedDict
 
 
 class ParserOff:
@@ -39,7 +40,7 @@ class ParserOff:
         return list_p
 
     def delete_duplicate(self, req):
-        """  """
-        new_list = list(set(req))
-        return new_list
+        """ Delete data duplicated in the list. """
+        return list(OrderedDict.fromkeys(req))
+
 
