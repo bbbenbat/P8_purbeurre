@@ -39,5 +39,15 @@ def test_parser_off_low_case():
     result = ['pomme de terre', 'petit pois', 'purée de carottes', 'soupe de légumes']
     assert req == result
 
+def test_parser_delete_duplicate():
+    """ Delete data duplicated in the list. """
+    req0 = ['purée de pommes de terre', 'purée de carottes', 'purée de pommes de terre']
+    req = parser_off.delete_duplicate(req0)
+    result = ['purée de pommes de terre', 'purée de carottes']
+    assert req == result
+
+
+
+
 
 
