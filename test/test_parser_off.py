@@ -26,12 +26,18 @@ def test_parser_off_list_global():
     assert req == result
 
 def test_parser_off_delete_whitespace():
-    """  """
+    """ Delete all whitespace (l/r) in a list. """
     req0 = ['Pomme de terre ', ' Petit pois', ' Purée de carottes ', 'Soupe de légumes']
     req = parser_off.delete_whitespace(req0)
     result = ['Pomme de terre', 'Petit pois', 'Purée de carottes', 'Soupe de légumes']
     assert req == result
 
+def test_parser_off_low_case():
+    """ Change all caracters in low-case. """
+    req0 = ['Pomme de terre', 'Petit pois', 'Purée de carottes', 'Soupe de légumes']
+    req = parser_off.low_case(req0)
+    result = ['pomme de terre', 'petit pois', 'purée de carottes', 'soupe de légumes']
+    assert req == result
 
 
 
