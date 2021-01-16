@@ -25,5 +25,13 @@ def test_parser_off_list_global():
               'Sodas', 'Sodas au cola', 'Boissons avec sucre ajouté']
     assert req == result
 
+def test_parser_off_delete_whitespace():
+    """  """
+    req0 = ['Pomme de terre ', ' Petit pois', ' Purée de carottes ', 'Soupe de légumes']
+    req = parser_off.delete_whitespace(req0)
+    result = ['Pomme de terre', 'Petit pois', 'Purée de carottes', 'Soupe de légumes']
+    assert req == result
+
+
 
 
