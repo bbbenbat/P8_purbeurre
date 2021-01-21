@@ -1,17 +1,22 @@
 from django.db import models
 
+class BaseModel(models.Model):
+    objects = models.Manager()
+    class Meta:
+        abstract = True
 
-class Product(models.Model):
+
+class Product(BaseModel):
     """  """
     name = models.CharField(max_length=100)
     nutriscore = models.CharField(max_length=1)
-    url = models.CharField(max_length=300)
+    url = models.CharField(max_length=1000)
     barcode = models.CharField(max_length=20, unique=True)
-    ingredient = models.CharField(max_length=1000)
+    ingredient = models.CharField(max_length=3000)
     url_image = models.CharField(max_length=1000, null=True)
 
 
-class Category(models.Model):
+class Category(BaseModel):
     """  """
     name = models.CharField(max_length=100)
 

@@ -6,15 +6,11 @@ class ParserOff:
     """  """
 
     def delete_fr(self, req):
-        """ Delete 'fr:' and return only categories data into list_categories. """
-        list_categories = []
+        """ Delete 'fr:' and 'en:'. """
+        cat_clean = []
         for var in req:
-            try:
-                cat = var['categories']
-                list_categories.append(cat.replace('fr:', ''))
-            except:
-                pass
-        return list_categories
+            cat_clean.append(var.replace('fr:', '').replace('en:', ''))
+        return cat_clean
 
     def list_global(self, req):
         """ Split all data into global list. """
@@ -42,5 +38,13 @@ class ParserOff:
     def delete_duplicate(self, req):
         """ Delete data duplicated in the list. """
         return list(OrderedDict.fromkeys(req))
+
+    def global_parser(self, req):
+        """ Uses all methods of the class. """
+        delete_fr = self.delete_fr(req)
+        delete_w = self.delete_whitespace(delete_fr)
+        low_case = self.low_case(delete_w)
+        delete_dup = self.delete_duplicate(low_case)
+        return delete_dup
 
 
