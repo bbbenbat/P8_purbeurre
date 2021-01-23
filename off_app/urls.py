@@ -4,6 +4,6 @@ from off_app import views
 
 urlpatterns = [
     path('', views.main_page, name="main_page"),
-    #path('', views.research_product, name="research_product"),
-    path('addfavorite', views.create_favorite, name="addfavorite"),
+    path('product_research', views.product_research, name="product_research"),
+
 ]

@@ -2,11 +2,11 @@
 {% block content %}
 <ul>
     {% if product %}
-        {% for products in product%}
-            <li>{{ products.name }}</li>
-        {% endfor%}
+    {% for products in product %}
+    <li>{{ products.name }}</li>
+    {% endfor %}
     {% else %}
-        <span class="text-danger">Il n'y a aucun article ici!</span>
-    {% endif%}
+    <span class="text-danger">Il n'y a pas de produit.</span>
+    {% endif %}
 </ul>
 {% endblock %}
