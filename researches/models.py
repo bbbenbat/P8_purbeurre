@@ -1,5 +1,8 @@
 from django.db import models
 
+from accounts.models import CustomUser
+
+
 class BaseModel(models.Model):
     objects = models.Manager()
     class Meta:
@@ -27,16 +30,16 @@ class ProductCategory(BaseModel):
     id_category = models.ForeignKey(Category, on_delete=models.CASCADE)
 
 
-class UserApp(BaseModel):
+"""class UserApp(BaseModel):
     """  """
     firstname = models.CharField(max_length=50)
     lastname = models.CharField(max_length=500)
     email = models.CharField(max_length=200)
     password = models.CharField(max_length=100)
-
+"""
 
 class Favorite(BaseModel):
     """ """
     date = models.DateTimeField(auto_now_add=True)
-    id_user = models.ForeignKey(UserApp, on_delete=models.CASCADE)
+    id_user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
     id_product = models.ForeignKey(Product, on_delete=models.CASCADE)
