@@ -21,13 +21,13 @@ class Category(BaseModel):
     name = models.CharField(max_length=100)
 
 
-class ProductCategory(models.Model):
+class ProductCategory(BaseModel):
     """  """
     id_product = models.ForeignKey(Product, on_delete=models.CASCADE)
     id_category = models.ForeignKey(Category, on_delete=models.CASCADE)
 
 
-class User(models.Model):
+class UserApp(BaseModel):
     """  """
     firstname = models.CharField(max_length=50)
     lastname = models.CharField(max_length=500)
@@ -35,8 +35,8 @@ class User(models.Model):
     password = models.CharField(max_length=100)
 
 
-class Favorite(models.Model):
+class Favorite(BaseModel):
     """ """
     date = models.DateTimeField(auto_now_add=True)
-    id_user = models.ForeignKey(User, on_delete=models.CASCADE)
+    id_user = models.ForeignKey(UserApp, on_delete=models.CASCADE)
     id_product = models.ForeignKey(Product, on_delete=models.CASCADE)

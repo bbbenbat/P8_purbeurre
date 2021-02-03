@@ -16,7 +16,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+from researches import views
+
 urlpatterns = [
+    # path('', include('researches.urls')),
     path('admin/', admin.site.urls),
-    path('', include('off_app.urls')),
+    path('accounts/', include('allauth.urls')),  # new
+    # path('', TemplateView.as_view(template_name='home.html'), name='home'),  # new
+    path('', include('pages.urls')),  # new
+    path('product_research', views.product_research, name="product_research"),
 ]

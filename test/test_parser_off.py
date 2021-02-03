@@ -1,5 +1,5 @@
 """  """
-from off_app.api.parser_off import ParserOff
+from researches.api.parser_off import ParserOff
 
 parser_off = ParserOff()
 

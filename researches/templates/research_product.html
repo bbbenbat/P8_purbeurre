@@ -1,0 +1,38 @@
+{% extends 'main.html'%}
+{% load static %}
+{% block nav %}
+<li class="nav-item"><a class="nav-link js-scroll-trigger" href="{% url 'account_login' %}">Log In</a></li>
+<li class="nav-item"><a class="nav-link js-scroll-trigger" href="{% url 'account_signup' %}">Sign Up</a></li>
+{% endblock %}
+{% block content %}
+<section class="section services-section " id="services">
+    <div class="container">
+        <div class="row">
+            {% if product %}
+            {% for loop in product %}
+            <!-- feaure box -->
+            <div class="col-sm-2 col-lg-4" id="box_product">
+                <div class="feature-box-1 ">
+                    <div class="icon">
+                        {{loop.nutriscore}}
+                    </div>
+                    <div class=""
+                         style="background:transparent url('{{loop.url_image}}') no-repeat center center /cover"
+                         id="product_picture">
+
+                    </div>
+                    <div class="">
+                        <p>{{ loop.name }}<br>
+                        Sauvegarder</p>
+                    </div>
+                </div>
+            </div>
+            <!-- / -->
+            {% endfor %}
+            {% else %}
+            <span class="text-danger">Il n'y a pas de proposition pour : {{test_prod}}.</span>
+            {% endif %}
+        </div>
+    </div>
+</section>
+{% endblock %}

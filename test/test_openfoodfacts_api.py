@@ -1,6 +1,6 @@
 """  """
 
-from off_app.api.openfoodfacts_api import ApiOff
+from researches.api.openfoodfacts_api import ApiOff
 
 off_api = ApiOff()
 

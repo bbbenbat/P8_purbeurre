@@ -1,0 +1,21 @@
+{% extends 'main.html' %}
+
+{% block title %}Login{% endblock %}
+
+{% block nav %}
+{% if user.is_authenticated %}
+    Hi {{ user.email }}!
+    <p><a href="{% url 'account_logout' %}">Log Out</a></p>
+{% else %}
+    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{% url 'account_signup' %}">Sign Up</a></li>
+{% endif %}
+{% endblock %}
+
+{% block content %}
+<h2>Log In</h2>
+<form method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit">Log In</button>
+</form>
+{% endblock %}
