@@ -10,7 +10,7 @@ def main_page(request):
 
 def product_research(request):
     list_product_category = []
-    request_user = request.POST.get('question')
+    request_user = request.POST.get('question').lower()
     if request_user == '':
         list_product = None
         return render(request, 'research_product.html', {'product': list_product, 'test_prod': request_user})

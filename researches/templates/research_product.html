@@ -1,8 +1,10 @@
 {% extends 'main.html'%}
 {% load static %}
 {% block nav %}
-<li class="nav-item"><a class="nav-link js-scroll-trigger" href="{% url 'account_login' %}">Log In</a></li>
-<li class="nav-item"><a class="nav-link js-scroll-trigger" href="{% url 'account_signup' %}">Sign Up</a></li>
+<li class="nav-item"><a class="nav-link js-scroll-trigger" href="{% url 'account_login' %}">
+    <img src="{% static 'assets/img/icones/login.png' %}"></a></li>
+<li class="nav-item"><a class="nav-link js-scroll-trigger" href="{% url 'account_signup' %}">
+    <img src="{% static 'assets/img/icones/signup.png' %}"></a></li>
 {% endblock %}
 {% block content %}
 <section class="section services-section " id="services">

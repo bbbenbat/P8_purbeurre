@@ -1,5 +1,5 @@
 {% extends 'main.html' %}
-
+{% load static %}
 {% block title %}Login{% endblock %}
 
 {% block nav %}
@@ -7,7 +7,7 @@
     Hi {{ user.email }}!
     <p><a href="{% url 'account_logout' %}">Log Out</a></p>
 {% else %}
-    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{% url 'account_signup' %}">Sign Up</a></li>
+    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{% url 'account_signup' %}"><img src="{% static 'assets/img/icones/signup.png' %}"></a></li>
 {% endif %}
 {% endblock %}
 
