@@ -6,7 +6,10 @@
 <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">About</a></li>
 <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#contact">Contact</a></li>
 {% if user.is_authenticated %}
-<p><a href="{% url 'account_logout' %}"><img src="{% static 'assets/img/icones/logout.png' %}"></a></p>
+<li class="nav-item"><a class="nav-link js-scroll-trigger" href="{% url 'favorite_product' %}">
+    <img src="{% static 'assets/img/icones/carrot.png' %}"></a></li>
+<li class="nav-item"><a class="nav-link js-scroll-trigger" href="{% url 'account_logout' %}">
+    <img src="{% static 'assets/img/icones/logout.png' %}"></a></li>
 {% else %}
 <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{% url 'account_login' %}">
     <img src="{% static 'assets/img/icones/login.png' %}"></a></li>
