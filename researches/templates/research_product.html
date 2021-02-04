@@ -24,8 +24,20 @@
 
                     </div>
                     <div class="">
-                        <p>{{ loop.name }}<br>
-                        Sauvegarder</p>
+                        <div ><h5 class="col text-dark text-center">{{ loop.name }}</h5></div>
+                        <div class="col">
+                            <p>
+
+                            <form id="prodfav" method="POST" action="{% url 'favorite_save' %}">
+                                {% csrf_token %}
+                                <input type="hidden" name="favprod" value="{{ loop.pk }}">
+                                <button class="btn btn-outline-dark btn-block" type="submit">
+                                    <img class="mr-2 "
+                                         src="{% static 'assets/img/icones/save_prod.png' %}">Sauvegarder
+                                </button>
+                            </form>
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>

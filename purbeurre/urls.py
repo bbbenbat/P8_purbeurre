@@ -26,4 +26,5 @@ urlpatterns = [
     path('', include('pages.urls')),  # new
     path('product_research', views.product_research, name="product_research"),
     path('favorite_product', views.favorite_product, name="favorite_product"),
+    path('favorite_save', views.favorite_save, name="favorite_save"),
 ]

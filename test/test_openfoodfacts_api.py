@@ -1,6 +1,6 @@
 """  """
 
-from researches.api.openfoodfacts_api import ApiOff
+from researches.controllers.openfoodfacts_api import ApiOff
 
 off_api = ApiOff()
 
@@ -13,7 +13,7 @@ print(PAGE_SIZE)
 
 
 def test_openfoodfacts_api():
-    """ Test api result for page 1 with 2 product."""
+    """ Test controllers result for page 1 with 2 product."""
     req = off_api.api_connection(PAGE, PAGE_SIZE)
     result = [{'nutrition_grades_tags': ['a'],
                'url': 'https://fr.openfoodfacts.org/produit/3274080005003/'

@@ -1,6 +1,6 @@
 from django.shortcuts import render
 
-from researches.api import best_product
+from researches.controllers import best_product, favorites
 from researches.models import Product, Favorite
 
 
@@ -10,13 +10,19 @@ def main_page(request):
 
 def favorite_product(request):
     current_user = request.user
-    favorites = Favorite.objects.filter(id_user=1)
-    list_prod = []
-    for req in favorites:
-        prod = Product.objects.filter(pk=req.id_product_id)
-        for req1 in prod:
-            list_prod.append({'product': req1.name, 'date': str(req.date)})
+    favproduct = favorites.Favorites()
+    list_prod = favproduct.show_favorite(current_user.id)
     return render(request, 'favorite_product.html', {'favorites': list_prod})
+
+def favorite_save(request):
+    request_user = request.POST.get('favprod')
+    current_user = request.user
+    favproduct = favorites.Favorites()
+    favproduct.save_favorite(request_user, current_user.id)
+    list_prod = favproduct.show_favorite(current_user.id)
+    return render(request, 'favorite_product.html', {'favorites': list_prod, 'request_user': request_user})
+
+
 
 
 def product_research(request):

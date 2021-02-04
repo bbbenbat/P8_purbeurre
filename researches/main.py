@@ -1,7 +1,7 @@
 """  """
 
-from researches.api import openfoodfacts_api
-from researches.api import save_data_api
+from researches.controllers import openfoodfacts_api
+from researches.controllers import save_data_api
 
 api_off = openfoodfacts_api.ApiOff()
 

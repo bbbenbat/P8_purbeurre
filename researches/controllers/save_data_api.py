@@ -3,7 +3,7 @@ import django
 
 django.setup()
 
-from researches.api import parser_off
+from researches.controllers import parser_off
 from researches.models import Category, Product, ProductCategory
 
 pars_off = parser_off.ParserOff()
