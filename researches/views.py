@@ -3,10 +3,6 @@ from django.shortcuts import render
 from researches.controllers import best_product, favorites
 
 
-def main_page(request):
-    return render(request, 'home.html')
-
-
 def favorite_product(request):
     current_user = request.user
     favproduct = favorites.Favorites()
@@ -24,7 +20,6 @@ def favorite_save(request):
 
 
 def product_research(request):
-    list_product_category = []
     request_user = request.POST.get('question').lower()
     if request_user == '':
         return render(request, 'home.html')
