@@ -1,52 +1,69 @@
 {% extends 'main.html'%}
 {% load static %}
+
 {% block nav %}
+{% if user.is_authenticated %}
+<li class="nav-item"><a class="nav-link js-scroll-trigger" href="{% url 'favorite_product' %}">
+    <img src="{% static 'assets/img/icones/carrot.png' %}"></a></li>
+<li><a href="{% url 'account_logout' %}">
+    <img src="{% static 'assets/img/icones/logout.png' %}"></a>
+    {% else %}
 <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{% url 'account_login' %}">
     <img src="{% static 'assets/img/icones/login.png' %}"></a></li>
 <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{% url 'account_signup' %}">
     <img src="{% static 'assets/img/icones/signup.png' %}"></a></li>
+{% endif %}
 {% endblock %}
+
 {% block content %}
-<section class="section services-section " id="services">
-    <div class="container">
-        <div class="row">
-            {% if product %}
-            {% for loop in product %}
-            <!-- feaure box -->
-            <div class="col-sm-2 col-lg-4" id="box_product">
-                <div class="feature-box-1 ">
-                    <div class="icon">
-                        {{loop.nutriscore}}
-                    </div>
-                    <div class=""
-                         style="background:transparent url('{{loop.url_image}}') no-repeat center center /cover"
-                         id="product_picture">
+<div class="row">
+    {% if product %}
+    {% for loop in product %}
+    <!-- feaure box -->
+    <div class="col-sm-2 col-lg-4" id="box_product">
+        <div class="feature-box-1 ">
+            <div class="icon">
+                {{loop.nutriscore}}
+            </div>
+            <div class=""
+                 style="background:transparent url('{{loop.url_image}}') no-repeat center center /cover"
+                 id="product_picture">
 
-                    </div>
-                    <div class="">
-                        <div ><h5 class="col text-dark text-center">{{ loop.name }}</h5></div>
-                        <div class="col">
-                            <p>
-
-                            <form id="prodfav" method="POST" action="{% url 'favorite_save' %}">
-                                {% csrf_token %}
-                                <input type="hidden" name="favprod" value="{{ loop.pk }}">
-                                <button class="btn btn-outline-dark btn-block" type="submit">
-                                    <img class="mr-2 "
-                                         src="{% static 'assets/img/icones/save_prod.png' %}">Sauvegarder
-                                </button>
-                            </form>
-                            </p>
-                        </div>
-                    </div>
+            </div>
+            <div class="">
+                <div><h5 class="col text-dark text-center">{{ loop.name }}</h5></div>
+                <div class="col">
+                    <p>
+                        {% if user.is_authenticated %}
+                    <form id="prodfav" method="POST" action="{% url 'favorite_save' %}">
+                        {% csrf_token %}
+                        <input type="hidden" name="favprod" value="{{ loop.pk }}">
+                        <button class="btn btn-outline-dark btn-block" type="submit">
+                            <img class="mr-2 "
+                                 src="{% static 'assets/img/icones/save_prod.png' %}">Sauvegarder
+                        </button>
+                    </form>
+                    {% endif %}
+                    </p>
                 </div>
             </div>
-            <!-- / -->
-            {% endfor %}
-            {% else %}
-            <span class="text-danger">Il n'y a pas de proposition pour : {{test_prod}}.</span>
-            {% endif %}
         </div>
     </div>
-</section>
+    <!-- / -->
+    {% endfor %}
+    {% else %}
+    <div class="container">
+        <div class="text-warning text-center m-5">Il n'y a pas de proposition pour : {{test_prod}}.
+        <form action="{% url 'main_page' %}">
+            {% csrf_token %}
+            <input type="hidden">
+            <button class="btn btn-default btn-outline-warning btn-center m-2" type="submit">
+                retour à la page d'accueil
+            </button>
+        </form>
+        </div>
+
+    </div>
+    {% endif %}
+</div>
 {% endblock %}

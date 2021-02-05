@@ -1,11 +1,10 @@
 from django.shortcuts import render
 
 from researches.controllers import best_product, favorites
-from researches.models import Product, Favorite
 
 
 def main_page(request):
-    return render(request, 'index.html')
+    return render(request, 'home.html')
 
 
 def favorite_product(request):
@@ -13,6 +12,7 @@ def favorite_product(request):
     favproduct = favorites.Favorites()
     list_prod = favproduct.show_favorite(current_user.id)
     return render(request, 'favorite_product.html', {'favorites': list_prod})
+
 
 def favorite_save(request):
     request_user = request.POST.get('favprod')
@@ -23,16 +23,25 @@ def favorite_save(request):
     return render(request, 'favorite_product.html', {'favorites': list_prod, 'request_user': request_user})
 
 
-
-
 def product_research(request):
     list_product_category = []
     request_user = request.POST.get('question').lower()
     if request_user == '':
-        list_product = None
-        return render(request, 'research_product.html', {'product': list_product, 'test_prod': request_user})
+        return render(request, 'home.html')
     else:
-        best_prod = best_product.BestResearch()
-        list_product = best_prod.bestresearch_all(request_user)[:6]
-        # list_category = Category.objects.filter(name__contains=request_user)
-        return render(request, 'research_product.html', {'product': list_product, 'test_prod': request_user})
+        try:
+            best_prod = best_product.BestResearch()
+            list_product = best_prod.bestresearch_all(request_user)[:6]
+            return render(request, 'research_product.html', {'product': list_product, 'test_prod': request_user})
+        except:
+            list_product = None
+            return render(request, 'research_product.html', {'product': list_product, 'test_prod': request_user})
+
+
+def info_product(request):
+    url_product = request.POST.get('urlprod')
+    return render(request, 'info_product.html', {'url_product': url_product})
+
+
+def legal(request):
+    return render(request, 'legal.html')

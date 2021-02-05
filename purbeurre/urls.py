@@ -19,7 +19,7 @@ from django.urls import path, include
 from researches import views
 
 urlpatterns = [
-    # path('', include('researches.urls')),
+    path('main_page', views.main_page, name="main_page"),
     path('admin/', admin.site.urls),
     path('accounts/', include('allauth.urls')),  # new
     # path('', TemplateView.as_view(template_name='home.html'), name='home'),  # new
@@ -27,4 +27,6 @@ urlpatterns = [
     path('product_research', views.product_research, name="product_research"),
     path('favorite_product', views.favorite_product, name="favorite_product"),
     path('favorite_save', views.favorite_save, name="favorite_save"),
+    path('info_product', views.info_product, name="info_product"),
+    path('legal', views.legal, name="legal"),
 ]

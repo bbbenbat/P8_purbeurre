@@ -1,34 +1,54 @@
 {% extends 'main.html'%}
 {% load static %}
+
 {% block nav %}
 {% if user.is_authenticated %}
-<p><a href="{% url 'account_logout' %}"><img src="{% static 'assets/img/icones/logout.png' %}"></a></p>
+<p><a href="{% url 'account_logout' %}">
+    <img src="{% static 'assets/img/icones/logout.png' %}"></a>
+</p>
 {% else %}
 <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{% url 'account_login' %}">
-    <img src="{% static 'assets/img/icones/login.png' %}"></a></li>
+    <img src="{% static 'assets/img/icones/login.png' %}"></a>
+</li>
 <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{% url 'account_signup' %}">
-    <img src="{% static 'assets/img/icones/signup.png' %}"></a></li>
+    <img src="{% static 'assets/img/icones/signup.png' %}"></a>
+</li>
 {% endif %}
 {% endblock %}
+
 {% block content %}
-<br>
-<br>
-<br><br><br><br><br><br><br><br><br><br><br><br><br>
-<ul>
-    {% if favorites %}
-    {% for loop in favorites %}
-    <li> {{loop.product}} {{loop.date}}</li>
-    {% endfor %}
-    {% else %}
-    Vous n'avez pas de produits favoris.
-    {% endif %}
-    TEST
-    {{ request_user }}
-    TEST
+<div class="overflow-auto h-100">
+    <table class="table table-striped table-dark">
+        <thead>
+        <tr>
+            <th scope="col">date</th>
+            <th scope="col">produit</th>
+            <th scope="col">nutriscore</th>
+            <th scope="col">lien</th>
+        </tr>
+        </thead>
+        <tbody>
 
-</ul>
-
-
-{{ user.email }} <br>
-{{ current_user }}
+        {% if favorites %}
+        {% for loop in favorites %}
+        <tr>
+            <td>{{loop.date}}</td>
+            <td>{{loop.product}}</td>
+            <td>{{loop.nutriscore}}</td>
+            <td>
+                <form id="produrl" method="POST" action="{% url 'info_product' %}">
+                    {% csrf_token %}
+                    <input type="hidden" name="urlprod" value="{{ loop.url }}">
+                    <button class="btn btn-outline-light btn-block" type="submit">
+                        Lien
+                    </button>
+                </form>
+        </tr>
+        {% endfor %}
+        {% else %}
+        Vous n'avez pas de produits en favori.
+        {% endif %}
+        </tbody>
+    </table>
+</div>
 {% endblock %}
