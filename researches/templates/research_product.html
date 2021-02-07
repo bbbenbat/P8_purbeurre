@@ -1,20 +1,6 @@
 {% extends 'main.html'%}
 {% load static %}
 
-{% block nav %}
-{% if user.is_authenticated %}
-<li class="nav-item"><a class="nav-link js-scroll-trigger" href="{% url 'favorite_product' %}">
-    <img src="{% static 'assets/img/icones/carrot.png' %}"></a></li>
-<li><a href="{% url 'account_logout' %}">
-    <img src="{% static 'assets/img/icones/logout.png' %}"></a>
-    {% else %}
-<li class="nav-item"><a class="nav-link js-scroll-trigger" href="{% url 'account_login' %}">
-    <img src="{% static 'assets/img/icones/login.png' %}"></a></li>
-<li class="nav-item"><a class="nav-link js-scroll-trigger" href="{% url 'account_signup' %}">
-    <img src="{% static 'assets/img/icones/signup.png' %}"></a></li>
-{% endif %}
-{% endblock %}
-
 {% block content %}
 <div class="row">
     {% if product %}
@@ -25,8 +11,8 @@
             <div class="icon">
                 {{loop.nutriscore}}
             </div>
-            <div class=""
-                 style="background:transparent url('{{loop.url_image}}') no-repeat center center /cover"
+            <div class="rounded"
+                 style="background:#343A40 url('{{loop.url_image}}') no-repeat center"
                  id="product_picture">
 
             </div>

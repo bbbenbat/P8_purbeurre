@@ -1,7 +1,10 @@
 from django.shortcuts import render
+from django.views.generic import TemplateView
 
 from researches.controllers import best_product, favorites
 
+class HomePageView(TemplateView):
+    template_name = 'home.html'
 
 def favorite_product(request):
     current_user = request.user
@@ -34,9 +37,14 @@ def product_research(request):
 
 
 def info_product(request):
-    url_product = request.POST.get('urlprod')
-    return render(request, 'info_product.html', {'url_product': url_product})
+    prod_url = request.POST.get('produrl')
+    prod_id = request.POST.get('prodid')
+    return render(request, 'info_product.html', {'prod_url': prod_url, 'prod_id': prod_id})
 
 
 def legal(request):
     return render(request, 'legal.html')
+
+
+def profil_user(request):
+    return render(request, 'account/profil_user.html')

@@ -1,24 +1,19 @@
 {% extends 'main.html'%}
 {% load static %}
 
-{% block nav %}
-{% if user.is_authenticated %}
-<p><a href="{% url 'account_logout' %}">
-    <img src="{% static 'assets/img/icones/logout.png' %}"></a>
-</p>
-{% else %}
-<li class="nav-item"><a class="nav-link js-scroll-trigger" href="{% url 'account_login' %}">
-    <img src="{% static 'assets/img/icones/login.png' %}"></a>
-</li>
-<li class="nav-item"><a class="nav-link js-scroll-trigger" href="{% url 'account_signup' %}">
-    <img src="{% static 'assets/img/icones/signup.png' %}"></a>
-</li>
-{% endif %}
-{% endblock %}
-
 {% block content %}
-{{url_product}}
+<div class="container h-25 "
+     style="background:transparent url('{{prod_url}}') no-repeat center ">
+
+
+</div>
+url
+{{prod_url}}<br>
+id
+{{prod_id}}
+test
+{{ request.user.get_profile.whatever }}test
 <div class="embed-responsive embed-responsive-16by9">
-  <iframe class="embed-responsive-item" src="{{url_product}}" allowfullscreen></iframe>
+    <iframe class="embed-responsive-item" src="{{url_product}}" allowfullscreen></iframe>
 </div>
 {% endblock %}

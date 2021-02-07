@@ -37,15 +37,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'researches.apps.OffAppConfig',  # new
     'django.contrib.sites',  # new
-
-    # 3rd party
     'allauth',  # new
     'allauth.account',  # new
     'allauth.socialaccount',  # new
-
-    # Local
     'accounts',  # new
-    'pages',  # new
 ]
 
 MIDDLEWARE = [
@@ -126,7 +121,9 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
-STATIC_URL = '/static/'
+STATIC_URL = '/static/'  # new
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')  # new
+MEDIA_URL = '/media/'  # new
 
 AUTH_USER_MODEL = 'accounts.CustomUser'  # new
 
@@ -140,14 +137,14 @@ AUTHENTICATION_BACKENDS = (
     "allauth.account.auth_backends.AuthenticationBackend",
 )
 
-SITE_ID = 1
+SITE_ID = 1  # new
 
-ACCOUNT_EMAIL_REQUIRED = True
-ACCOUNT_USERNAME_REQUIRED = False
-ACCOUNT_SIGNUP_PASSWORD_ENTER_TWICE = False
-ACCOUNT_SESSION_REMEMBER = True
-ACCOUNT_AUTHENTICATION_METHOD = 'email'
-ACCOUNT_UNIQUE_EMAIL = True
-ACCOUNT_LOGOUT_ON_GET = True
-LOGIN_REDIRECT_URL = 'home'
-ACCOUNT_LOGOUT_REDIRECT_URL = 'home'
+ACCOUNT_EMAIL_REQUIRED = True  # new
+ACCOUNT_USERNAME_REQUIRED = False  # new
+ACCOUNT_SIGNUP_PASSWORD_ENTER_TWICE = False  # new
+ACCOUNT_SESSION_REMEMBER = True  # new
+ACCOUNT_AUTHENTICATION_METHOD = 'email'  # new
+ACCOUNT_UNIQUE_EMAIL = True  # new
+ACCOUNT_LOGOUT_ON_GET = True  # new
+LOGIN_REDIRECT_URL = 'home'  # new
+ACCOUNT_LOGOUT_REDIRECT_URL = 'home'  # new

@@ -15,7 +15,8 @@ class Favorites:
                 date_prod = str(req.date)
                 list_prod.append({
                     'product': req1.name, 'date': date_prod[0:16],
-                    'nutriscore': req1.nutriscore, 'url': req1.url})
+                    'nutriscore': req1.nutriscore, 'url': req1.url,
+                    'id': req1.id, 'url_image': req1.url_image})
         return list_prod
 
     def save_favorite(self, req1, req2):
