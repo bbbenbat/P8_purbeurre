@@ -1,4 +1,4 @@
-{% extends 'main.html' %}
+{% extends 'base.html' %}
 {% load static %}
 {% block title %}Home{% endblock %}
 
@@ -13,6 +13,8 @@
         <div class="container h-100">
             <div class="row h-100 align-items-center justify-content-center text-center">
                 <div class="col-lg-10 align-self-end">
+                    <p class="text-warning">{{success_signup}}
+                    {{success_signup1}}</p>
                     <h1 class="text-uppercase text-white font-weight-bold">
                         Du gras, oui, mais de qualité!</h1>
                     <h2 class="text-uppercase text-white font-weight-bold">

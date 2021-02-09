@@ -17,6 +17,7 @@ class Product(BaseModel):
     barcode = models.CharField(max_length=20, unique=True)
     ingredient = models.CharField(max_length=3000)
     url_image = models.CharField(max_length=1000, null=True)
+    nutriment = models.CharField(max_length=5000)
 
 
 class Category(BaseModel):

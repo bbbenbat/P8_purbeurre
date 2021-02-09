@@ -26,7 +26,7 @@ urlpatterns = [
     path('accounts/', include('allauth.urls')),  # new
     # path('', TemplateView.as_view(template_name='home.html'), name='home'),  # new
     path('', include('researches.urls')),  # new
-    path('product_research', views.product_research, name="product_research"),
+    path('product_research/', views.product_research, name="product_research"),
     path('favorite_product', views.favorite_product, name="favorite_product"),
     path('favorite_save', views.favorite_save, name="favorite_save"),
     path('info_product', views.info_product, name="info_product"),

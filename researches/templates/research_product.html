@@ -1,4 +1,4 @@
-{% extends 'main.html'%}
+{% extends 'base.html'%}
 {% load static %}
 
 {% block content %}
@@ -17,7 +17,19 @@
 
             </div>
             <div class="">
-                <div><h5 class="col text-dark text-center">{{ loop.name }}</h5></div>
+                <div>
+                    <h5 class="col text-dark text-center">
+                        <form id="produrl" method="POST" action="{% url 'info_product' %}">
+                            {% csrf_token %}
+                            <input type="hidden" name="prod_id" value="{{ loop.id }}">
+                            <input type="hidden" name="prod_name" value="{{ loop.name }}">
+                            <input type="hidden" name="prod_url" value="{{ loop.url_image }}">
+                            <button class="btn btn-link text-dark" value="submit">
+                                {{ loop.name }}
+                            </button>
+                        </form>
+                    </h5>
+                </div>
                 <div class="col">
                     <p>
                         {% if user.is_authenticated %}
@@ -40,13 +52,13 @@
     {% else %}
     <div class="container">
         <div class="text-warning text-center m-5">Il n'y a pas de proposition pour : {{test_prod}}.
-        <form action="{% url 'home' %}">
-            {% csrf_token %}
-            <input type="hidden">
-            <button class="btn btn-default btn-outline-warning btn-center m-2" type="submit">
-                retour à la page d'accueil
-            </button>
-        </form>
+            <form action="{% url 'home' %}">
+                {% csrf_token %}
+                <input type="hidden">
+                <button class="btn btn-default btn-outline-warning btn-center m-2" type="submit">
+                    retour à la page d'accueil
+                </button>
+            </form>
         </div>
 
     </div>

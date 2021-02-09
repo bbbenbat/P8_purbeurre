@@ -37,13 +37,15 @@ def product_research(request):
 
 
 def info_product(request):
-    prod_url = request.POST.get('produrl')
-    prod_id = request.POST.get('prodid')
-    return render(request, 'info_product.html', {'prod_url': prod_url, 'prod_id': prod_id})
+    prod_url = request.POST.get('prod_url')
+    prod_id = request.POST.get('prod_id')
+    prod_name = request.POST.get('prod_name')
+    return render(request, 'info_product.html',
+                  {'prod_url': prod_url, 'prod_id': prod_id, 'prod_prod': prod_name})
 
 
 def legal(request):
-    return render(request, 'legal.html')
+    return render(request, 'legal/legal.html')
 
 
 def profil_user(request):

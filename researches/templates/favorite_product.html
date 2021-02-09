@@ -1,4 +1,4 @@
-{% extends 'main.html'%}
+{% extends 'base.html'%}
 {% load static %}
 
 {% block content %}
@@ -23,8 +23,9 @@
             <td>
                 <form id="produrl" method="POST" action="{% url 'info_product' %}">
                     {% csrf_token %}
-                    <input type="hidden" name="prodid" value="{{ loop.id }}">
-                    <input type="hidden" name="produrl" value="{{ loop.url_image }}">
+                    <input type="hidden" name="prod_id" value="{{ loop.id }}">
+                    <input type="hidden" name="prod_name" value="{{ loop.product }}">
+                    <input type="hidden" name="prod_url" value="{{ loop.url_image }}">
                     <button class="btn btn-outline-light btn-block" type="submit">
                         Lien
                     </button>

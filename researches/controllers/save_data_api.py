@@ -20,7 +20,7 @@ class SaveDataApi():
                 product_name = var['product_name'].lower()
                 Product(name=product_name, nutriscore=var['nutrition_grades_tags'][0],
                         url=var['url'], barcode=var['code'], ingredient=var['ingredients_text_fr'],
-                        url_image=var['image_front_url']).save()
+                        url_image=var['image_front_url'],nutriment=var['nutriments']).save()
                 product_id = Product.objects.get(name=product_name)
                 # print("PRODUCT ID ",product_id.id)
                 # save categories
