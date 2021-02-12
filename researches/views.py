@@ -1,10 +1,12 @@
 from django.shortcuts import render
 from django.views.generic import TemplateView
 
-from researches.controllers import best_product, favorites
+from researches.controllers import best_product, favorites, info_prod
+
 
 class HomePageView(TemplateView):
     template_name = 'home.html'
+
 
 def favorite_product(request):
     current_user = request.user
@@ -37,11 +39,26 @@ def product_research(request):
 
 
 def info_product(request):
-    prod_url = request.POST.get('prod_url')
     prod_id = request.POST.get('prod_id')
-    prod_name = request.POST.get('prod_name')
+    infoprod = info_prod.InfoProd()
+    list_all = infoprod.find_product(prod_id)
+    list_prod = list_all[0]
+    list_p = list_all[1]
+    fat = list_prod['fat_100g']
+    saturated = list_prod['saturated-fat_100g']
+    sugar = list_prod['sugars_value']
+    salt = list_prod['salt_100g']
+    energy = list_prod['energy_100g']
+    list_nutri = ['a', 'b', 'c', 'd', 'e']
     return render(request, 'info_product.html',
-                  {'prod_url': prod_url, 'prod_id': prod_id, 'prod_prod': prod_name})
+                  {'prod_id': prod_id, 'list_nutri': list_nutri,
+                   'fat': fat, 'saturated': saturated,
+                   'salt': salt, 'sugar': sugar,'energy' : energy,
+                   'nutriscore': list_p['nutriscore'],
+                   'url_image' : list_p['url_image'],
+                   'name': list_p['name'], 'url': list_p['url'],
+                   'barcode': list_p['barcode'],
+                   'ingredient': list_p['ingredient']})
 
 
 def legal(request):

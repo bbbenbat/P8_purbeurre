@@ -21,3 +21,4 @@ class Favorites:
 
     def save_favorite(self, req1, req2):
         Favorite(id_product_id=req1, id_user_id=req2).save()
+

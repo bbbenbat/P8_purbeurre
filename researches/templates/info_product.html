@@ -3,22 +3,69 @@
 
 {% block content %}
 
-<div class="container h-25" style="background:white no-repeat center/60% url('{{prod_url}}')">
-    <div class="row align-items-center h-100">
-        <div class="col-3 mx-auto">
-            <div class="bg-dark" style="opacity: 0.5;">
-                <div class="text-center text-light">
-                    <h1 class="text-capitalize">{{prod_prod}}</h1>
-                </div>
+
+<div class="container text-light text-center bg-light h-75">
+    <div class="row h-50 bg-dark" style="background:transparent no-repeat center/60% url('{{url_image}}')">
+        <div class="col d-flex align-items-center justify-content-center text-warning font-weight-bold">
+            <h1 style="background:#345a61; opacity:0.9">{{name}}</h1></div>
+    </div>
+    <div class="row">
+        <div class="col-sm bg-light">
+            <div class="col text-center">
+                Nutriscore
+            </div>
+            <div class="row text-uppercase ml-2">
+                {% if nutriscore %}
+                {% for loop in list_nutri %}
+                {% if loop == nutriscore %}
+                <h3 class="col-2 float-left text-danger font-weight-bold">{{loop}}</h3>
+                {% else %}
+                <h5 class="col-2 float-left text-warning">{{loop}}</h5>
+                {% endif %}
+                {% endfor %}
+                {% endif %}
+            </div>
+            <div class="text-center text-warning">
+                <div class="text-light m-1">Code-barres</div>
+                <h5>{{barcode}}</h5>
             </div>
         </div>
+        <div class="col-sm bg-light">
+            <p>Valeur énergétique pour 100 g</p>
+            <h5 class="text-danger font-weight-bold">{{energy}}</h5>
+            <div class="pt-2 ">
+                <p>Ingrédients<br>
+                    <span class="text-warning text-left">{{ingredient}}</span></p>
+            </div>
+        </div>
+        <div class="col-sm bg-light">
+            Repères nutritionnels pour 100gr
+            <ul class="list-group list-group-flush text-warning">
+                <li class="list-group-item bg-light text-left">
+                    <h5 class="float-left mr-1 pb-0 font-weight-bold">{{fat}}</h5>
+                    g Matières grasses/Lipides
+                </li>
+                <li class="list-group-item bg-light text-left">
+                    <h5 class="float-left mr-1 font-weight-bold">{{saturated}}</h5>
+                    g Acides gras saturés
+                </li>
+                <li class="list-group-item bg-light text-left">
+                    <h5 class="float-left mr-1 font-weight-bold">{{sugar}}</h5>
+                    g Sucre
+                </li>
+                <li class="list-group-item bg-light text-left">
+                    <h5 class="float-left mr-1 font-weight-bold">{{salt}}</h5>
+                    g Sel
+                </li>
+            </ul>
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="col-12 bg-light"><p>Lien Openfoodfacts<br>
+            <a class="text-warning" href="{{url}}">{{url}}</a></p></div>
     </div>
 </div>
-<div class="row text-light text-uppercase text-center">
-    <p class="col-3 mx-auto m-3 p-2 bg-light">Fiche Openfoodfacts</p>
-</div>
 
-<div class="embed-responsive embed-responsive-16by9">
-    <iframe class="embed-responsive-item" src="{{url_product}}" allowfullscreen></iframe>
-</div>
+
 {% endblock %}
