@@ -25,7 +25,7 @@
                             <input type="hidden" name="prod_name" value="{{ loop.name }}">
                             <input type="hidden" name="prod_url" value="{{ loop.url_image }}">
                             <button class="btn btn-link text-dark" value="submit">
-                                {{ loop.name }}
+                                <p style="height:25px;overflow: hidden;">{{ loop.name }}</p>
                             </button>
                         </form>
                     </h5>
@@ -33,15 +33,22 @@
                 <div class="col">
                     <p>
                         {% if user.is_authenticated %}
-                    <form id="prodfav" method="POST" action="{% url 'favorite_save' %}">
-                        {% csrf_token %}
-                        <input type="hidden" name="favprod" value="{{ loop.pk }}">
-                        <button class="btn btn-outline-dark btn-block" type="submit">
-                            <img class="mr-2 "
-                                 src="{% static 'assets/img/icones/save_prod.png' %}">Sauvegarder
-                        </button>
-                    </form>
-                    {% endif %}
+                            {% if loop.active == True %}
+                            <button class="btn btn-outline-dark btn-block" type="submit" disabled>
+                                <img class="mr-2 "
+                                     src="{% static 'assets/img/icones/save_prod.png' %}">Sauvegarder
+                            </button>
+                            {% else %}
+                            <form id="prodfav" method="POST" action="{% url 'favorite_save' %}">
+                                {% csrf_token %}
+                                <input type="hidden" name="favprod" value="{{ loop.id_product }}">
+                                <button class="btn btn-outline-dark btn-block" type="submit">
+                                    <img class="mr-2 "
+                                         src="{% static 'assets/img/icones/save_prod.png' %}">Sauvegarder
+                                </button>
+                            </form>
+                            {% endif %}
+                        {% endif %}
                     </p>
                 </div>
             </div>

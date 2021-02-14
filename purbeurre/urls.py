@@ -29,6 +29,7 @@ urlpatterns = [
     path('product_research/', views.product_research, name="product_research"),
     path('favorite_product', views.favorite_product, name="favorite_product"),
     path('favorite_save', views.favorite_save, name="favorite_save"),
+    path('favorite_update', views.favorite_update, name="favorite_update"),
     path('info_product', views.info_product, name="info_product"),
     path('legal', views.legal, name="legal"),
     path('profil_user', views.profil_user, name="profil_user"),
