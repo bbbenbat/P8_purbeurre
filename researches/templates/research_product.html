@@ -21,9 +21,7 @@
                     <h5 class="col text-dark text-center">
                         <form id="produrl" method="POST" action="{% url 'info_product' %}">
                             {% csrf_token %}
-                            <input type="hidden" name="prod_id" value="{{ loop.id }}">
-                            <input type="hidden" name="prod_name" value="{{ loop.name }}">
-                            <input type="hidden" name="prod_url" value="{{ loop.url_image }}">
+                            <input type="hidden" name="prod_id" value="{{ loop.id_product }}">
                             <button class="btn btn-link text-dark" value="submit">
                                 <p style="height:25px;overflow: hidden;">{{ loop.name }}</p>
                             </button>
