@@ -1,5 +1,5 @@
 """
-This module, via the Best Research class, allows you to find the best
+This module, via the BestResearch class, allows you to find the best
 products classified by nutritional scores.
 """
 import django
