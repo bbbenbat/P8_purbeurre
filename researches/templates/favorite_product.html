@@ -28,7 +28,7 @@
                     {% csrf_token %}
                     <input type="hidden" name="favorite_statut" value=False>
                     <input type="hidden" name="id_product" value="{{loop.id}}">
-                    <button class="btn btn-outline-light btn-block" title="Cliquer pour désactiver" type="submit">
+                    <button id="proddeletebtn" class="btn btn-outline-light btn-block" title="Cliquer pour désactiver" type="submit">
                         ON
                     </button>
                 </form>
@@ -38,7 +38,7 @@
                 <form id="produrl" method="POST" action="{% url 'info_product' %}">
                     {% csrf_token %}
                     <input type="hidden" name="prod_id" value="{{ loop.id }}">
-                    <button class="btn btn-outline-light btn-block" type="submit">
+                    <button id="produrlbtn" class="btn btn-outline-light btn-block" type="submit">
                         Lien
                     </button>
                 </form>

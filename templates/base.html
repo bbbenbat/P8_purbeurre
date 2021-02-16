@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
     <meta name="description" content=""/>
     <meta name="author" content=""/>
-    <title>Creative - Start Bootstrap Theme</title>
+    <title>Pur Beurre</title>
     <!-- Favicon-->
     <link rel="icon" type="image/x-icon" href="{% static 'assets/img/favicon.ico' %}"/>
     <!-- Font Awesome icons (free version)-->
@@ -46,20 +46,20 @@
                 {% endblock %}
 
                 {% if user.is_authenticated %}
-                <li class="nav-item"><a data-toggle="tooltip" data-placement="bottom" title="Mon compte"
+                <li id="myaccountbtn" class="nav-item"><a data-toggle="tooltip" data-placement="bottom" title="Mon compte"
                                         class="nav-link js-scroll-trigger" href="{% url 'profil_user' %}">
                     <img src="{% static 'assets/img/icones/myaccount.png' %}"></a></li>
-                <li class="nav-item"><a data-toggle="tooltip" data-placement="bottom" title="Mes favoris"
+                <li id="myfavoritebtn" class="nav-item"><a data-toggle="tooltip" data-placement="bottom" title="Mes favoris"
                                         class="nav-link js-scroll-trigger" href="{% url 'favorite_product' %}">
                     <img src="{% static 'assets/img/icones/carrot.png' %}"></a></li>
-                <li class="nav-item"><a data-toggle="tooltip" data-placement="bottom" title="Se déconnecter"
+                <li id="logoutbtn" class="nav-item"><a data-toggle="tooltip" data-placement="bottom" title="Se déconnecter"
                                         class="nav-link js-scroll-trigger" href="{% url 'account_logout' %}">
                     <img src="{% static 'assets/img/icones/logout.png' %}"></a></li>
                     {% else %}
-                <li class="nav-item"><a data-toggle="tooltip" data-placement="bottom" title="Se connecter"
+                <li id="loginbtn" class="nav-item"><a data-toggle="tooltip" data-placement="bottom" title="Se connecter"
                                         class="nav-link js-scroll-trigger" href="{% url 'account_login' %}">
                     <img src="{% static 'assets/img/icones/login.png' %}"></a></li>
-                <li class="nav-item"><a data-toggle="tooltip" data-placement="bottom" title="S'enregistrer"
+                <li id="signupbtn" class="nav-item"><a data-toggle="tooltip" data-placement="bottom" title="S'enregistrer"
                                         class="nav-link js-scroll-trigger" href="{% url 'signup_user' %}">
                     <img src="{% static 'assets/img/icones/signup.png' %}"></a></li>
                 {% endif %}
@@ -80,8 +80,8 @@
 <!-- Footer-->
 <footer class="bg-light py-4 fixed-bottom">
     <div class="container">
-        <div class="col-6 small text-center text-muted float-left"><a href="{% url 'legal' %}">mentions légales</div>
-        <div class="col-6 small text-center text-muted float-right"><a href="/#contact">contact</a></div>
+        <div id="legalbtn" class="col-6 small text-center text-muted float-left"><a href="{% url 'legal' %}">mentions légales</div>
+        <div id="contactbtn" class="col-6 small text-center text-muted float-right"><a href="/#contact">contact</a></div>
     </div>
 </footer>
 <!-- Bootstrap core JS-->

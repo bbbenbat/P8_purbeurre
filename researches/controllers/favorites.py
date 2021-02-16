@@ -9,9 +9,9 @@ from researches.models import Favorite, Product
 class Favorites:
     """ This class allows to find and save the user's favorite products. """
 
-    def show_favorite(self, req):
+    def show_favorite(self, r_user):
         """ This method allows to find the user's favorite products. """
-        favorites = Favorite.objects.filter(id_user=req).order_by('-date')
+        favorites = Favorite.objects.filter(id_user=r_user).order_by('-date')
         list_prod = []
         for req in favorites:
             prod = Product.objects.filter(pk=req.id_product_id)
@@ -28,13 +28,15 @@ class Favorites:
         """ This method allows to save the user's favorite products. """
         check_favorite = Favorite.objects.filter(id_user_id=r_user,id_product_id=r_product)
         if check_favorite:
-            self.update_favorite(True, r_user, r_product)
+            save_fav = self.update_favorite(True, r_user, r_product)
         else:
-            Favorite(id_product_id=r_product, id_user_id=r_user).save()
+            save_fav = Favorite(id_product_id=r_product, id_user_id=r_user).save()
+        return save_fav
 
     def update_favorite(self, r_statut, r_user, r_product):
         """ Update favorite product statut of the user (active or not). """
-        Favorite.objects.filter(id_user_id=r_user, id_product_id=r_product).update(active=r_statut)
+        save_fav = Favorite.objects.filter(id_user_id=r_user, id_product_id=r_product).update(active=r_statut)
+        return save_fav
 
     def statut_fav_from_prod(self, r_product, r_user):
         """ Give the list of product with favorite statement. """
