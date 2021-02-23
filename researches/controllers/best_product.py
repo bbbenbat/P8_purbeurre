@@ -1,3 +1,5 @@
+# !/usr/bin/env python
+# -*- coding: utf-8 -*-
 """
 This module, via the BestResearch class, allows you to find the best
 products classified by nutritional scores.
@@ -13,7 +15,8 @@ class BestResearch:
     """ Class to have a products' list regarding a key word. """
 
     def category_ref(self, req):
-        """ Find the categories related to the user search with the frequency.  """
+        """ Find the categories related to the user search with the frequency.
+        """
         list_cat = {}
         list_prod_cat = []
         list_product = Product.objects.filter(name__contains=req)[:20]
@@ -70,7 +73,3 @@ class BestResearch:
         find = self.find_best_product(cat)
         list_product = self.list_best_nutri(find)
         return list_product
-
-
-
-

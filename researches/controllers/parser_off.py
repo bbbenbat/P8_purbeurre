@@ -1,3 +1,5 @@
+# !/usr/bin/env python
+# -*- coding: utf-8 -*-
 """ This module parses the data. """
 from collections import OrderedDict
 

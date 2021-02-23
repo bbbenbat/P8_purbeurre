@@ -5,6 +5,7 @@ from accounts.models import CustomUser
 
 class BaseModel(models.Model):
     objects = models.Manager()
+
     class Meta:
         abstract = True
 

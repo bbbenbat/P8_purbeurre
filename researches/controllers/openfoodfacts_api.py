@@ -19,7 +19,8 @@ class ApiOff:
         PAGE_SIZE = req2
         JSON = "true"
         FIELDS = "product_name,nutrition_grades_tags,url,code," \
-                 "ingredients_text_fr,categories,stores_tags,image_front_url,nutriments"
+                 "ingredients_text_fr,categories,stores_tags," \
+                 "image_front_url,nutriments"
         for var in range(PAGE):
             parameters = {'action': ACTION,
                           'sort_by': SORT_BY,

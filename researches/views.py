@@ -22,7 +22,8 @@ def favorite_save(request):
     current_user = request.user
     favproduct.save_favorite(id_product, current_user.id)
     list_prod = favproduct.show_favorite(current_user.id)
-    return render(request, 'favorite_product.html', {'favorites': list_prod, 'request_user': id_product})
+    return render(request, 'favorite_product.html',
+                  {'favorites': list_prod, 'request_user': id_product})
 
 
 def favorite_update(request):
@@ -45,13 +46,15 @@ def product_research(request):
                 current_user = request.user
             else:
                 current_user = None
-            list_prod = favproduct.statut_fav_from_prod(list_product,current_user.id)[:6]
+            list_prod = favproduct.statut_fav_from_prod(list_product,
+                                                        current_user.id)[:6]
             return render(request, 'research_product.html',
-                              {'product': list_prod, 'test_prod': request_user})
+                          {'product': list_prod, 'test_prod': request_user})
         except:
             list_product = None
             return render(request, 'research_product.html',
-                          {'product': list_product, 'test_prod': request_user})
+                          {'product': list_product,
+                           'test_prod': request_user})
 
 
 def info_product(request):

@@ -1,3 +1,5 @@
+# !/usr/bin/env python
+# -*- coding: utf-8 -*-
 """
 This module, via the InfoProd class, give the information for a product.
 """
@@ -11,7 +13,8 @@ from researches.models import Product
 
 
 class InfoProd:
-    """ This class return a dictionary with the information of a product (req). """
+    """ This class return a dictionary with the information of a product (
+    req). """
 
     def find_product(self, req):
         """ This module gives the information for a product. """
