@@ -1,3 +1,5 @@
+# !/usr/bin/env python
+# -*- coding: utf-8 -*-
 """ This module test the class BestResearch from best_product file. """
 from django.test import TestCase
 
