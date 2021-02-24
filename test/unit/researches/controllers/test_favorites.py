@@ -81,7 +81,6 @@ class test_favorites_Favorites(TestCase):
             'id_product_id', flat=True)
         prod = Product.objects.filter(pk__in=fav)
         req = favo.statut_fav_from_prod(prod, ID_USER)
-        print(req)
         result = [{'active': True, 'id_user': 1, 'id_product_fav': 2830,
                    'nutriscore': 'b', 'id_product': 2830,
                    'url_image':

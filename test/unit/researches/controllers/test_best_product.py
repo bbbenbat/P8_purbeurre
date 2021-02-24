@@ -181,7 +181,6 @@ class MyTest(TestCase):
                  'object (3826)>, ' \
                  '<Product: Product object (3837)>, <Product: Product ' \
                  'object (3846)>]'
-        # result = 'Product object (2025)'
         req = best_res.find_best_product(LIST_CAT)
         assert str(req) == result
 
@@ -199,5 +198,3 @@ class MyTest(TestCase):
                  'object (2081)>, <Product: Product object (2088)>, ' \
                  '<Product: Product object (2095)>]>'
         assert str(req) == result
-
-
