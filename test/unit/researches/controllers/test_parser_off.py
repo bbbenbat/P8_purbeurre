@@ -10,6 +10,8 @@ parser_off = ParserOff()
 
 
 class test_parser_off_ParserOff(TestCase):
+    """ This class processes the data retrieved through the API before it
+        is saved to the database """
 
     def test_parser_off_delete_fr(self):
         """ Delete 'fr:' and return data into list_categories. """

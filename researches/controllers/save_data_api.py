@@ -1,6 +1,7 @@
 # !/usr/bin/env python
 # -*- coding: utf-8 -*-
-"""  """
+""" This module, via the SaveDataApi class, save the product in database.
+product. """
 import django
 
 django.setup()
@@ -12,7 +13,7 @@ pars_off = parser_off.ParserOff()
 
 
 class SaveDataApi():
-    """  """
+    """ This class saves products and their categories in the database """
 
     def save_products(self, req):
         """ Save name, nutriscore, url, barcode, ingredient,url_image,
@@ -27,27 +28,22 @@ class SaveDataApi():
                         url_image=var['image_front_url'],
                         nutriment=var['nutriments']).save()
                 product_id = Product.objects.get(name=product_name)
-                # print("PRODUCT ID ",product_id.id)
                 # save categories
                 cat = var['categories'].split(',')
-                # list_id_cat = []
                 # list washing
                 cat_clean = pars_off.global_parser(cat)
                 # time to save (or not)
                 for var1 in cat_clean:
                     # check if category exist
                     if Category.objects.filter(name=var1).exists():
-                        # print("Catégorie existe déjà: ", var1)
                         pass
                     else:
                         Category(name=var1).save()
-                        # print("Catégorie enregistrée : ", var1)
-                    # récupérer le(s) id des catégories dans la db
+                # take categories id db
                 cat_id = Category.objects.filter(name__in=cat_clean)
                 # take all id into list_id_cat
                 for req in cat_id:
                     ProductCategory(id_category_id=req.id,
                                     id_product_id=product_id.id).save()
             except Exception as d:
-                print("Manque un élément", d)
                 pass

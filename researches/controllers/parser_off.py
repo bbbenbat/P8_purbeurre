@@ -5,7 +5,8 @@ from collections import OrderedDict
 
 
 class ParserOff:
-    """  """
+    """ This class processes the data retrieved through the API before it
+    is saved to the database """
 
     def delete_fr(self, req):
         """ Delete 'fr:' and 'en:'. """
@@ -48,5 +49,3 @@ class ParserOff:
         low_case = self.low_case(delete_w)
         delete_dup = self.delete_duplicate(low_case)
         return delete_dup
-
-
