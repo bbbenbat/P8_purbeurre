@@ -19,6 +19,7 @@ class SaveDataApi():
         """ Save name, nutriscore, url, barcode, ingredient,url_image,
         nutriment into Product table. """
         for var in req:
+            print("TEST :::::::",var)
             try:
                 product_name = var['product_name'].lower()
                 Product(name=product_name,
