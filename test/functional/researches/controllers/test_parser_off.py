@@ -10,7 +10,6 @@ def test_parser_off_delete_fr():
             'Petit pote',
             'Pomme de terre', 'La patate']
     req = parser_off.delete_fr(req0)
-    print(req)
     result = [' Purée de petit pois', 'Petit pote', 'Pomme de terre', 'La patate']
     assert req == result
 
