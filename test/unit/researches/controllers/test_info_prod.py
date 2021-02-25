@@ -91,5 +91,4 @@ class test_info_prod_InfoProd(TestCase):
                            'Origine: France), protéines du _lait_, '
                            'sel. Fabriqué dans un atelier utilisant des '
                            'fruits à coque et du lait de chèvre'})
-
         assert req == result
