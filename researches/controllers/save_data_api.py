@@ -4,10 +4,10 @@
 product. """
 import django
 
-django.setup()
-
 from researches.controllers import parser_off
 from researches.models import Category, Product, ProductCategory
+
+django.setup()
 
 pars_off = parser_off.ParserOff()
 
@@ -19,7 +19,7 @@ class SaveDataApi():
         """ Save name, nutriscore, url, barcode, ingredient,url_image,
         nutriment into Product table. """
         for var in req:
-            print("TEST :::::::",var)
+            print("TEST :::::::", var)
             try:
                 product_name = var['product_name'].lower()
                 Product(name=product_name,
@@ -46,5 +46,5 @@ class SaveDataApi():
                 for req in cat_id:
                     ProductCategory(id_category_id=req.id,
                                     id_product_id=product_id.id).save()
-            except Exception as d:
+            except Exception:
                 pass

@@ -7,9 +7,9 @@ import ast
 
 import django
 
-django.setup()
-
 from researches.models import Product
+
+django.setup()
 
 
 class InfoProd:

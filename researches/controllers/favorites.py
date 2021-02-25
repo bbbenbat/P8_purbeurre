@@ -4,9 +4,9 @@
 user's favorite products. """
 import django
 
-django.setup()
-
 from researches.models import Favorite, Product
+
+django.setup()
 
 
 class Favorites:
