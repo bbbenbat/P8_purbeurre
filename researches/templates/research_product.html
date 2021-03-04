@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block content %}
-<div class="row">
+<div class="row pb-4">
     {% if product %}
     {% for loop in product %}
     <!-- feaure box -->
@@ -11,10 +11,8 @@
             <div class="icon">
                 {{loop.nutriscore}}
             </div>
-            <div class="rounded"
-                 style="background:#343A40 url('{{loop.url_image}}') no-repeat center"
+            <div class="rounded" style="background:#343A40 url('{{loop.url_image}}') no-repeat center"
                  id="product_picture">
-
             </div>
             <div class="">
                 <div>
@@ -33,7 +31,7 @@
                         {% if user.is_authenticated %}
                             {% if loop.active == True %}
                             <button class="btn btn-outline-dark btn-block" type="submit" disabled>
-                                <img class="mr-2 "
+                                <img class="mr-2"
                                      src="{% static 'assets/img/icones/save_prod.png' %}">Sauvegarder
                             </button>
                             {% else %}
@@ -65,7 +63,6 @@
                 </button>
             </form>
         </div>
-
     </div>
     {% endif %}
 </div>

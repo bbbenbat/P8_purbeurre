@@ -18,6 +18,8 @@
     <!-- Third party plugin CSS-->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css"
           rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Scope+One" rel="stylesheet" type="text/css">
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="{% static 'css/styles.css' %}" rel="stylesheet"/>
 </head>
@@ -72,16 +74,17 @@
 {% block header %}
 {% endblock %}
 <section class="section services-section h-100" id="services">
-    <div class="container h-100">
+    <div class="container">
         {% block content %}
         {% endblock %}
     </div>
 </section>
+
 <!-- Footer-->
-<footer class="bg-light py-4 fixed-bottom">
-    <div class="container">
-        <div id="legalbtn" class="col-6 small text-center text-muted float-left"><a href="{% url 'legal' %}">mentions légales</div>
-        <div id="contactbtn" class="col-6 small text-center text-muted float-right"><a href="/#contact">contact</a></div>
+<footer class="bg-light py-1 fixed-bottom">
+    <div class="container ">
+        <div id="legalbtn" class="col-6 text-center text-muted float-left font-weight-bold"><a href="{% url 'legal' %}">mentions légales</div>
+        <div id="contactbtn" class="col-6 text-center text-muted float-right font-weight-bold"><a href="/#contact">contact</a></div>
     </div>
 </footer>
 <!-- Bootstrap core JS-->
