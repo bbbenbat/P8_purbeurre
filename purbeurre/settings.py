@@ -25,7 +25,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY', '%tyzr%74fp$(o5y3s%9+#4177++qzd-mmbnln
 
 # SECURITY WARNING: don't run with debug turned on in production!
 if os.environ.get('ENV') == 'PRODUCTION':
-    DEBUG = False
+    DEBUG = True
 else:
     DEBUG = True
 
@@ -140,10 +140,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'  # new
-STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 if os.environ.get('ENV') == 'PRODUCTION':
     ALLOWED_HOSTS = ['ocr-purbeurre.herokuapp.com']
-
+    STATICFILES_STORAGE = \
+        'whitenoise.storage.CompressedManifestStaticFilesStorage'
     # Static files settings
     PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
     STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
@@ -153,7 +153,6 @@ if os.environ.get('ENV') == 'PRODUCTION':
     )
     db_from_env = dj_database_url.config(conn_max_age=500)
     DATABASES['default'].update(db_from_env)
-
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')  # new
 MEDIA_URL = '/media/'  # new
 
