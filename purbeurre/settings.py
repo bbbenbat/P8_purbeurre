@@ -151,10 +151,8 @@ if os.environ.get('ENV') == 'PRODUCTION':
     STATICFILES_DIRS = (
         os.path.join(PROJECT_ROOT, 'static'),
     )
-    DATABASES = {
-        'default': dj_database_url.config(default=config('DATABASE_URL')
-        )
-    }
+    db_from_env = dj_database_url.config(conn_max_age=500)
+    DATABASES['default'].update(db_from_env)
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')  # new
 MEDIA_URL = '/media/'  # new
