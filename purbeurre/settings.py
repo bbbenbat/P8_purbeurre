@@ -10,6 +10,9 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 import os
+
+import django_heroku
+
 from distutils.command.config import config
 from pathlib import Path
 
@@ -191,3 +194,6 @@ ACCOUNT_UNIQUE_EMAIL = True  # new
 ACCOUNT_LOGOUT_ON_GET = True  # new
 LOGIN_REDIRECT_URL = 'home'  # new
 ACCOUNT_LOGOUT_REDIRECT_URL = 'home'  # new
+
+django_heroku.settings(locals())    # new
+
