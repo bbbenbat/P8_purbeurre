@@ -32,6 +32,8 @@ if os.environ.get('ENV') == 'PRODUCTION':
 else:
     DEBUG = True
 
+ALLOWED_HOSTS = ['ocr-purbeurre.herokuapp.com']
+
 # Application definition
 
 INSTALLED_APPS = [
