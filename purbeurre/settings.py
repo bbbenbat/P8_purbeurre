@@ -27,10 +27,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY',
                             '=nx3-b')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-if os.environ.get('ENV') == 'PRODUCTION':
-    DEBUG = True
-else:
-    DEBUG = True
+DEBUG = True
 
 ALLOWED_HOSTS = ['ocr-purbeurre.herokuapp.com']
 
