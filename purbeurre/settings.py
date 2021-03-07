@@ -21,7 +21,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
-"""# SECURITY WARNING: keep the secret key used in production secret!
+# SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get('SECRET_KEY',
                             '%tyzr%74fp$(o5y3s%9+#4177++qzd-mmbnlnb&b__p('
                             '=nx3-b')
@@ -30,7 +30,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY',
 if os.environ.get('ENV') == 'PRODUCTION':
     DEBUG = True
 else:
-    DEBUG = True"""
+    DEBUG = True
 
 # Application definition
 
@@ -153,13 +153,13 @@ STATIC_URL = '/static/'  # new
 )
 STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'"""
 
-SECRET_KEY = config('SECRET_KEY')
+"""SECRET_KEY = config('SECRET_KEY')
 DEBUG = config('DEBUG', default=False, cast=bool)
 DATABASES = {
     'default': dj_database_url.config(
         default=config('DATABASE_URL')
     )
-}
+}"""
 
 
 
