@@ -30,7 +30,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY',
 if os.environ.get('ENV') == 'PRODUCTION':
     DEBUG = False
 else:
-    DEBUG = True
+    DEBUG = False
 
 ALLOWED_HOSTS = ['ocr-purbeurre.herokuapp.com']
 
