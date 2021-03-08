@@ -135,6 +135,10 @@ USE_TZ = True
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # new
 STATIC_URL = '/static/'  # new
+STATICFILES_DIRS = (                    # new
+    os.path.join(BASE_DIR, 'static'),   # new
+)                                       # new
+
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')  # new
 MEDIA_URL = '/media/'  # new
 
