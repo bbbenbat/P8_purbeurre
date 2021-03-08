@@ -10,29 +10,21 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 import os
-
-import django_heroku
-
-from distutils.command.config import config
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-import dj_database_url
-
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get('SECRET_KEY',
-                            '%tyzr%74fp$(o5y3s%9+#4177++qzd-mmbnlnb&b__p('
-                            '=nx3-b')
+SECRET_KEY = '%tyzr%74fp$(o5y3s%9+#4177++qzd-mmbnlnb&b__p(=nx3-b'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['ocr-purbeurre.herokuapp.com']
+ALLOWED_HOSTS = []
 
 # Application definition
 
@@ -59,8 +51,6 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'purbeurre.urls'
@@ -140,34 +130,10 @@ USE_L10N = True
 
 USE_TZ = True
 
-# new
-PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
-
 # Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/1.9/howto/static-files/
-"""STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')"""
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+# https://docs.djangoproject.com/en/3.1/howto/static-files/
+
 STATIC_URL = '/static/'  # new
-
-# Extra places for collectstatic to find static files.
-"""STATICFILES_DIRS = (
-    os.path.join(PROJECT_ROOT, 'static'),
-)
-STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'"""
-
-"""SECRET_KEY = config('SECRET_KEY')
-DEBUG = config('DEBUG', default=False, cast=bool)
-DATABASES = {
-    'default': dj_database_url.config(
-        default=config('DATABASE_URL')
-    )
-}"""
-
-
-
-
-
-
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')  # new
 MEDIA_URL = '/media/'  # new
 
@@ -194,6 +160,3 @@ ACCOUNT_UNIQUE_EMAIL = True  # new
 ACCOUNT_LOGOUT_ON_GET = True  # new
 LOGIN_REDIRECT_URL = 'home'  # new
 ACCOUNT_LOGOUT_REDIRECT_URL = 'home'  # new
-
-django_heroku.settings(locals())    # new
-
