@@ -6,9 +6,9 @@ products classified by nutritional scores.
 """
 import django
 
-from researches.models import Product, ProductCategory
-
 django.setup()
+
+from researches.models import Product, ProductCategory
 
 
 class BestResearch:

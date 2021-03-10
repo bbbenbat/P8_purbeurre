@@ -2,24 +2,25 @@
 # -*- coding: utf-8 -*-
 """ This module, via the SaveDataApi class, save the product in database.
 product. """
+from tqdm import tqdm
+
 import django
+
+django.setup()
 
 from researches.controllers import parser_off
 from researches.models import Category, Product, ProductCategory
 
-django.setup()
-
 pars_off = parser_off.ParserOff()
 
 
-class SaveDataApi():
+class SaveDataApi:
     """ This class saves products and their categories in the database """
 
     def save_products(self, req):
         """ Save name, nutriscore, url, barcode, ingredient,url_image,
         nutriment into Product table. """
-        for var in req:
-            print("TEST :::::::", var)
+        for var in tqdm(req):
             try:
                 product_name = var['product_name'].lower()
                 Product(name=product_name,

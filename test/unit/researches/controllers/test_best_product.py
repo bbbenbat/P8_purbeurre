@@ -9,13 +9,10 @@ from researches.models import Product
 best_res = best_product.BestResearch()
 
 USER_RESEARCH = 'biscuit'
-LIST_CAT = {2442: 17, 2445: 16, 2470: 5, 2471: 5, 2472: 2, 2473: 2,
-            2474: 1, 2475: 1, 2443: 11, 2444: 11, 2497: 1,
-            2498: 1, 2499: 1, 2500: 1, 2501: 1, 2502: 1,
-            2597: 1, 2598: 1, 2611: 1, 2832: 1, 2833: 1,
-            2834: 1, 2446: 3, 2935: 1, 2936: 1, 2937: 1,
-            2938: 1, 2637: 2, 2940: 2, 2941: 2, 2951: 1,
-            2978: 1, 2565: 1}
+LIST_CAT = {3984: 18, 3985: 5, 3986: 5, 3987: 18, 3988: 13, 3989: 13, 3995: 1,
+            3996: 1, 3997: 1, 3998: 1, 3999: 1, 4000: 1, 4106: 1, 4107: 1,
+            4119: 1, 4006: 3, 4002: 1, 4003: 1, 4439: 1, 4440: 1, 4441: 1,
+            4442: 1, 4145: 2, 4444: 2, 4445: 2, 4453: 1, 4480: 1, 4071: 1}
 
 PROD_FILT = (
     2025, 2036, 2039, 2067, 2081, 2088, 2095, 2102, 2109, 2120, 2124,
@@ -35,7 +32,7 @@ PROD_FILT = (
 
 class MyTest(TestCase):
     # Must live in <your_app>/fixtures/data.json
-    fixtures = ['fixtures/testdata.json']
+    fixtures = ['fixtures/testdb.json']
 
     def test_bestresearch_category_ref(self):
         """ Find the categories related to the user search. """
@@ -45,156 +42,112 @@ class MyTest(TestCase):
 
     def test_bestresearch_find_best_product(self):
         """ Find the products with the 3 most frequent categories.  """
-        result = '[<Product: Product object (2025)>, <Product: Product ' \
-                 'object (2036)>, ' \
-                 '<Product: Product object (2039)>, <Product: Product ' \
-                 'object (2067)>, ' \
-                 '<Product: Product object (2081)>, <Product: Product ' \
-                 'object (2088)>, ' \
-                 '<Product: Product object (2095)>, <Product: Product ' \
-                 'object (2102)>, ' \
-                 '<Product: Product object (2109)>, <Product: Product ' \
-                 'object (2120)>, ' \
-                 '<Product: Product object (2124)>, <Product: Product ' \
-                 'object (2125)>, ' \
-                 '<Product: Product object (2129)>, <Product: Product ' \
-                 'object (2130)>, ' \
-                 '<Product: Product object (2155)>, <Product: Product ' \
-                 'object (2166)>, ' \
-                 '<Product: Product object (2172)>, <Product: Product ' \
-                 'object (2185)>, ' \
-                 '<Product: Product object (2205)>, <Product: Product ' \
-                 'object (2217)>, ' \
-                 '<Product: Product object (2225)>, <Product: Product ' \
-                 'object (2226)>, ' \
-                 '<Product: Product object (2235)>, <Product: Product ' \
-                 'object (2245)>, ' \
-                 '<Product: Product object (2256)>, <Product: Product ' \
-                 'object (2265)>, ' \
-                 '<Product: Product object (2267)>, <Product: Product ' \
-                 'object (2270)>, ' \
-                 '<Product: Product object (2277)>, <Product: Product ' \
-                 'object (2295)>, ' \
-                 '<Product: Product object (2312)>, <Product: Product ' \
-                 'object (2314)>, ' \
-                 '<Product: Product object (2315)>, <Product: Product ' \
-                 'object (2327)>, ' \
-                 '<Product: Product object (2340)>, <Product: Product ' \
-                 'object (2343)>, ' \
-                 '<Product: Product object (2350)>, <Product: Product ' \
-                 'object (2356)>, ' \
-                 '<Product: Product object (2361)>, <Product: Product ' \
-                 'object (2364)>, ' \
-                 '<Product: Product object (2369)>, <Product: Product ' \
-                 'object (2380)>, ' \
-                 '<Product: Product object (2763)>, <Product: Product ' \
-                 'object (2765)>, ' \
-                 '<Product: Product object (2773)>, <Product: Product ' \
-                 'object (2787)>, ' \
-                 '<Product: Product object (2789)>, <Product: Product ' \
-                 'object (2790)>, ' \
-                 '<Product: Product object (2796)>, <Product: Product ' \
-                 'object (2800)>, ' \
-                 '<Product: Product object (2804)>, <Product: Product ' \
-                 'object (2811)>, ' \
-                 '<Product: Product object (2823)>, <Product: Product ' \
-                 'object (2825)>, ' \
-                 '<Product: Product object (2826)>, <Product: Product ' \
-                 'object (2832)>, ' \
-                 '<Product: Product object (2852)>, <Product: Product ' \
-                 'object (2855)>, ' \
-                 '<Product: Product object (2872)>, <Product: Product ' \
-                 'object (2881)>, ' \
-                 '<Product: Product object (2885)>, <Product: Product ' \
-                 'object (2908)>, ' \
-                 '<Product: Product object (2927)>, <Product: Product ' \
-                 'object (2931)>, ' \
-                 '<Product: Product object (2933)>, <Product: Product ' \
-                 'object (2956)>, ' \
-                 '<Product: Product object (2962)>, <Product: Product ' \
-                 'object (2966)>, ' \
-                 '<Product: Product object (2976)>, <Product: Product ' \
-                 'object (2984)>, ' \
-                 '<Product: Product object (2989)>, <Product: Product ' \
-                 'object (2997)>, ' \
-                 '<Product: Product object (3024)>, <Product: Product ' \
-                 'object (3041)>, ' \
-                 '<Product: Product object (3052)>, <Product: Product ' \
-                 'object (3055)>, ' \
-                 '<Product: Product object (3062)>, <Product: Product ' \
-                 'object (3065)>, ' \
-                 '<Product: Product object (3073)>, <Product: Product ' \
-                 'object (3077)>, ' \
-                 '<Product: Product object (3100)>, <Product: Product ' \
-                 'object (3113)>, ' \
-                 '<Product: Product object (3124)>, <Product: Product ' \
-                 'object (3144)>, ' \
-                 '<Product: Product object (3169)>, <Product: Product ' \
-                 'object (3170)>, ' \
-                 '<Product: Product object (3198)>, <Product: Product ' \
-                 'object (3211)>, ' \
-                 '<Product: Product object (3243)>, <Product: Product ' \
-                 'object (3245)>, ' \
-                 '<Product: Product object (3250)>, <Product: Product ' \
-                 'object (3264)>, ' \
-                 '<Product: Product object (3284)>, <Product: Product ' \
-                 'object (3286)>, ' \
-                 '<Product: Product object (3289)>, <Product: Product ' \
-                 'object (3295)>, ' \
-                 '<Product: Product object (3309)>, <Product: Product ' \
-                 'object (3341)>, ' \
-                 '<Product: Product object (3350)>, <Product: Product ' \
-                 'object (3373)>, ' \
-                 '<Product: Product object (3375)>, <Product: Product ' \
-                 'object (3395)>, ' \
-                 '<Product: Product object (3424)>, <Product: Product ' \
-                 'object (3436)>, ' \
-                 '<Product: Product object (3447)>, <Product: Product ' \
-                 'object (3478)>, ' \
-                 '<Product: Product object (3486)>, <Product: Product ' \
-                 'object (3491)>, ' \
-                 '<Product: Product object (3497)>, <Product: Product ' \
-                 'object (3519)>, ' \
-                 '<Product: Product object (3527)>, <Product: Product ' \
-                 'object (3534)>, ' \
-                 '<Product: Product object (3553)>, <Product: Product ' \
-                 'object (3554)>, ' \
-                 '<Product: Product object (3561)>, <Product: Product ' \
-                 'object (3571)>, ' \
-                 '<Product: Product object (3572)>, <Product: Product ' \
-                 'object (3582)>, ' \
-                 '<Product: Product object (3583)>, <Product: Product ' \
-                 'object (3616)>, ' \
-                 '<Product: Product object (3629)>, <Product: Product ' \
-                 'object (3639)>, ' \
-                 '<Product: Product object (3644)>, <Product: Product ' \
-                 'object (3662)>, ' \
-                 '<Product: Product object (3665)>, <Product: Product ' \
-                 'object (3676)>, ' \
-                 '<Product: Product object (3683)>, <Product: Product ' \
-                 'object (3696)>, ' \
-                 '<Product: Product object (3727)>, <Product: Product ' \
-                 'object (3732)>, ' \
-                 '<Product: Product object (3746)>, <Product: Product ' \
-                 'object (3760)>, ' \
-                 '<Product: Product object (3799)>, <Product: Product ' \
-                 'object (3826)>, ' \
-                 '<Product: Product object (3837)>, <Product: Product ' \
-                 'object (3846)>]'
+        result = '[<Product: Product object (3868)>, <Product: Product ' \
+                 'object (3874)>, <Product: Product object (3877)>, ' \
+                 '<Product: Product object (3903)>, <Product: Product ' \
+                 'object (3918)>, <Product: Product object (3925)>, ' \
+                 '<Product: Product object (3932)>, <Product: Product ' \
+                 'object (3938)>, <Product: Product object (3945)>, ' \
+                 '<Product: Product object (3956)>, <Product: Product ' \
+                 'object (3960)>, <Product: Product object (3961)>, ' \
+                 '<Product: Product object (3965)>, <Product: Product ' \
+                 'object (3966)>, <Product: Product object (3990)>, ' \
+                 '<Product: Product object (4000)>, <Product: Product ' \
+                 'object (4006)>, <Product: Product object (4019)>, ' \
+                 '<Product: Product object (4039)>, <Product: Product ' \
+                 'object (4051)>, <Product: Product object (4059)>, ' \
+                 '<Product: Product object (4060)>, <Product: Product ' \
+                 'object (4068)>, <Product: Product object (4077)>, ' \
+                 '<Product: Product object (4087)>, <Product: Product ' \
+                 'object (4096)>, <Product: Product object (4101)>, ' \
+                 '<Product: Product object (4108)>, <Product: Product ' \
+                 'object (4126)>, <Product: Product object (4143)>, ' \
+                 '<Product: Product object (4145)>, <Product: Product ' \
+                 'object (4146)>, <Product: Product object (4158)>, ' \
+                 '<Product: Product object (4171)>, <Product: Product ' \
+                 'object (4174)>, <Product: Product object (4180)>, ' \
+                 '<Product: Product object (4186)>, <Product: Product ' \
+                 'object (4191)>, <Product: Product object (4194)>, ' \
+                 '<Product: Product object (4199)>, <Product: Product ' \
+                 'object (4210)>, <Product: Product object (4585)>, ' \
+                 '<Product: Product object (4587)>, <Product: Product ' \
+                 'object (4595)>, <Product: Product object (4609)>, ' \
+                 '<Product: Product object (4611)>, <Product: Product ' \
+                 'object (4612)>, <Product: Product object (4618)>, ' \
+                 '<Product: Product object (4621)>, <Product: Product ' \
+                 'object (4625)>, <Product: Product object (4633)>, ' \
+                 '<Product: Product object (4645)>, <Product: Product ' \
+                 'object (4647)>, <Product: Product object (4648)>, ' \
+                 '<Product: Product object (4654)>, <Product: Product ' \
+                 'object (4671)>, <Product: Product object (4674)>, ' \
+                 '<Product: Product object (4691)>, <Product: Product ' \
+                 'object (4700)>, <Product: Product object (4704)>, ' \
+                 '<Product: Product object (4727)>, <Product: Product ' \
+                 'object (4745)>, <Product: Product object (4749)>, ' \
+                 '<Product: Product object (4751)>, <Product: Product ' \
+                 'object (4774)>, <Product: Product object (4780)>, ' \
+                 '<Product: Product object (4784)>, <Product: Product ' \
+                 'object (4794)>, <Product: Product object (4802)>, ' \
+                 '<Product: Product object (4815)>, <Product: Product ' \
+                 'object (4842)>, <Product: Product object (4859)>, ' \
+                 '<Product: Product object (4870)>, <Product: Product ' \
+                 'object (4873)>, <Product: Product object (4880)>, ' \
+                 '<Product: Product object (4883)>, <Product: Product ' \
+                 'object (4891)>, <Product: Product object (4895)>, ' \
+                 '<Product: Product object (4918)>, <Product: Product ' \
+                 'object (4932)>, <Product: Product object (4943)>, ' \
+                 '<Product: Product object (4963)>, <Product: Product ' \
+                 'object (4988)>, <Product: Product object (4989)>, ' \
+                 '<Product: Product object (5016)>, <Product: Product ' \
+                 'object (5029)>, <Product: Product object (5061)>, ' \
+                 '<Product: Product object (5063)>, <Product: Product ' \
+                 'object (5068)>, <Product: Product object (5082)>, ' \
+                 '<Product: Product object (5101)>, <Product: Product ' \
+                 'object (5103)>, <Product: Product object (5106)>, ' \
+                 '<Product: Product object (5112)>, <Product: Product ' \
+                 'object (5126)>, <Product: Product object (5158)>, ' \
+                 '<Product: Product object (5167)>, <Product: Product ' \
+                 'object (5190)>, <Product: Product object (5192)>, ' \
+                 '<Product: Product object (5211)>, <Product: Product ' \
+                 'object (5240)>, <Product: Product object (5252)>, ' \
+                 '<Product: Product object (5263)>, <Product: Product ' \
+                 'object (5294)>, <Product: Product object (5301)>, ' \
+                 '<Product: Product object (5306)>, <Product: Product ' \
+                 'object (5312)>, <Product: Product object (5334)>, ' \
+                 '<Product: Product object (5342)>, <Product: Product ' \
+                 'object (5349)>, <Product: Product object (5368)>, ' \
+                 '<Product: Product object (5369)>, <Product: Product ' \
+                 'object (5376)>, <Product: Product object (5386)>, ' \
+                 '<Product: Product object (5387)>, <Product: Product ' \
+                 'object (5397)>, <Product: Product object (5398)>, ' \
+                 '<Product: Product object (5433)>, <Product: Product ' \
+                 'object (5447)>, <Product: Product object (5457)>, ' \
+                 '<Product: Product object (5463)>, <Product: Product ' \
+                 'object (5481)>, <Product: Product object (5484)>, ' \
+                 '<Product: Product object (5495)>, <Product: Product ' \
+                 'object (5502)>, <Product: Product object (5516)>, ' \
+                 '<Product: Product object (5547)>, <Product: Product ' \
+                 'object (5552)>, <Product: Product object (5566)>, ' \
+                 '<Product: Product object (5580)>, <Product: Product ' \
+                 'object (5619)>, <Product: Product object (5646)>, ' \
+                 '<Product: Product object (5657)>, <Product: Product ' \
+                 'object (5666)>]'
         req = best_res.find_best_product(LIST_CAT)
         assert str(req) == result
 
-    def test_bestresearch_list_best_nutri(self):
-        """ Classify a product list according to the nutritional score.
-         The product with ID '1' has a better nutriscore than the product
-         """
-        prod = Product.objects.filter(
-            pk__in=(2025, 2036, 2039, 2067, 2081, 2088, 2095))
-        req = best_res.list_best_nutri(prod)
-        result = '<QuerySet [<Product: Product object (2067)>, <Product: ' \
-                 'Product object (2039)>, ' \
-                 '<Product: Product object (2036)>, ' \
-                 '<Product: Product object (2025)>, <Product: Product ' \
-                 'object (2081)>, <Product: Product object (2088)>, ' \
-                 '<Product: Product object (2095)>]>'
-        assert str(req) == result
+
+def test_bestresearch_list_best_nutri(self):
+    """ Classify a product list according to the nutritional score.
+     The product with ID '1' has a better nutriscore than the product
+     """
+    prod = Product.objects.filter(
+        pk__in=(2025, 2036, 2039, 2067, 2081, 2088, 2095))
+    req = best_res.list_best_nutri(prod)
+    result = '<QuerySet [<Product: Product object (2067)>, <Product: ' \
+             'Product object (2039)>, ' \
+             '<Product: Product object (2036)>, ' \
+             '<Product: Product object (2025)>, <Product: Product ' \
+             'object (2081)>, <Product: Product object (2088)>, ' \
+             '<Product: Product object (2095)>]>'
+    print("list_best_nutri", req)
+    assert str(req) == result
