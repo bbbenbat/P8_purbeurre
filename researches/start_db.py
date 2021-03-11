@@ -4,8 +4,6 @@
 import os
 import sys
 
-import django
-django.setup()
 
 root_dir = os.path.abspath(os.curdir)
 sys.path.insert(0, root_dir)
