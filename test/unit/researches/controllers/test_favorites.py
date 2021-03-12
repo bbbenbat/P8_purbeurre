@@ -13,35 +13,38 @@ ID_USER = 1
 
 
 class test_favorites_Favorites(TestCase):
-    fixtures = ['fixtures/testdata.json']
+    fixtures = ['fixtures/testdb.json']
 
     def test_show_favorite(self):
         """ This method allows to find the user's favorite products.
         The user with ID '1'."""
         req = favo.show_favorite(ID_USER)
-        result = [{'product': 'pâte à tartiner', 'date': '2021-02-22 17:38',
-                   'nutriscore': 'd',
-                   'url':
-                       'https://fr.openfoodfacts.org/produit/3560070472888'
-                       '/pate'
-                       '-a-tartiner-carrefour-bio',
-                   'id': 2232,
-                   'url_image':
-                       'https://static.openfoodfacts.org/images/products'
-                       '/356/007/047/2888/front_fr.69.400.jpg',
-                   'active': False, 'fav_prod': 2232},
-                  {'product': 'purée de cacahuètes',
-                   'date': '2021-02-22 17:38',
-                   'nutriscore': 'b',
-                   'url':
-                       'https://fr.openfoodfacts.org/produit/3390390000153'
-                       '/puree'
-                       '-de-cacahuetes-jean-herve',
-                   'id': 2830,
-                   'url_image':
-                       'https://static.openfoodfacts.org/images/products'
-                       '/339/039/000/0153/front_fr.130.400.jpg',
-                   'active': True, 'fav_prod': 2830}]
+        result = [
+            {'product': 'coca-cola zéro sucres', 'date': '2021-03-12 11:08',
+             'nutriscore': 'b',
+             'url': 'https://fr.openfoodfacts.org/produit/5000112611762'
+                    '/coca-cola-zero-sucres-the-coca-cola-company',
+             'id': 587,
+             'url_image': 'https://static.openfoodfacts.org/images/products'
+                          '/500/011/261/1762/front_fr.54.400.jpg',
+             'active': False, 'fav_prod': 587},
+            {'product': 'ouf! la pâte à tartiner cacao noisettes',
+             'date': '2021-03-12 11:08', 'nutriscore': 'b',
+             'url': 'https://fr.openfoodfacts.org/produit/3770008009653/ouf'
+                    '-la-pate-a-tartiner-cacao-noisettes-funky-veggie',
+             'id': 1244,
+             'url_image': 'https://static.openfoodfacts.org/images/products'
+                          '/377/000/800/9653/front_fr.63.400.jpg',
+             'active': True, 'fav_prod': 1244},
+            {'product': 'purée cacahuète', 'date': '2021-03-12 11:08',
+             'nutriscore': 'b',
+             'url': 'https://fr.openfoodfacts.org/produit/3390390000153'
+                    '/puree-cacahuete-jean-herve',
+             'id': 698,
+             'url_image': 'https://static.openfoodfacts.org/images/products'
+                          '/339/039/000/0153/front_fr.136.400.jpg',
+             'active': True, 'fav_prod': 698}]
+
         assert req == result
 
     def test_save_favorite(self):
@@ -49,7 +52,7 @@ class test_favorites_Favorites(TestCase):
         The 'id_product' number has not be safe in Favorite table with the
         user
         id."""
-        id_product = 2335
+        id_product = 1050
         while True:
             check_fav = Favorite.objects.filter(id_product_id=id_product)
             if check_fav:
@@ -81,16 +84,22 @@ class test_favorites_Favorites(TestCase):
             'id_product_id', flat=True)
         prod = Product.objects.filter(pk__in=fav)
         req = favo.statut_fav_from_prod(prod, ID_USER)
-        result = [{'active': True, 'id_user': 1, 'id_product_fav': 2830,
-                   'nutriscore': 'b', 'id_product': 2830,
+        result = [{'active': True, 'id_user': 1, 'id_product_fav': 698,
+                   'nutriscore': 'b', 'id_product': 698,
                    'url_image':
                        'https://static.openfoodfacts.org/images/products'
-                       '/339/039/000/0153/front_fr.130.400.jpg',
-                   'name': 'purée de cacahuètes'},
-                  {'active': False, 'id_user': 1, 'id_product_fav': 2232,
-                   'nutriscore': 'd', 'id_product': 2232,
+                       '/339/039/000/0153/front_fr.136.400.jpg',
+                   'name': 'purée cacahuète'},
+                  {'active': False, 'id_user': 1, 'id_product_fav': 587,
+                   'nutriscore': 'b', 'id_product': 587,
                    'url_image':
                        'https://static.openfoodfacts.org/images/products'
-                       '/356/007/047/2888/front_fr.69.400.jpg',
-                   'name': 'pâte à tartiner'}]
+                       '/500/011/261/1762/front_fr.54.400.jpg',
+                   'name': 'coca-cola zéro sucres'},
+                  {'active': True, 'id_user': 1, 'id_product_fav': 1244,
+                   'nutriscore': 'b', 'id_product': 1244,
+                   'url_image': 'https://static.openfoodfacts.org/images/'
+                                'products/377/000/800/9653/'
+                                'front_fr.63.400.jpg',
+                   'name': 'ouf! la pâte à tartiner cacao noisettes'}]
         assert req == result
