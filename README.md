@@ -72,11 +72,17 @@ Creation of environment variables.
 - config var
 
 AWS_ACCESS_KEY_ID : yourAWSUserIdKey
+
 AWS_S3_REGION_NAME : eu-west-3
+
 AWS_SECRET_ACCESS_KEY : yourAWSUserAccessKey
+
 AWS_STORAGE_BUCKET_NAME : yourAWSBucketName
+
 DATABASE_URL HerokuDatabaseURI
+
 DJANGO_SETTINGS_MODULE : purbeurre.prod_settings
+
 SECRET_KEY : DjangoSecretKey
 
 
