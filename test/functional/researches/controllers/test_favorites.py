@@ -1,4 +1,4 @@
-""" This module test the class Favorites from best_product file. """
+""" This module test the class Favorites from favorites file. """
 
 from researches.controllers import favorites
 from researches.models import Favorite, Product

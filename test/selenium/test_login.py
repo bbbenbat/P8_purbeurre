@@ -1,3 +1,8 @@
+"""
+This module simulates user behavior via selenium and the default browser.
+Test of login functionality.
+"""
+
 import unittest
 
 from selenium import webdriver

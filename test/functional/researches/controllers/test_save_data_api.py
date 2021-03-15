@@ -1,4 +1,4 @@
-""" This module test the class ApiOff from openfoodfacts_api file. """
+""" This module test the class SaveDataApi from save_data_api file. """
 
 from researches.controllers import save_data_api
 from researches.models import Product, Category

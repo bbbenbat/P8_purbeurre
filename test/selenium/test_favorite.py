@@ -1,3 +1,8 @@
+"""
+This module simulates user behavior via selenium and the default browser.
+Test of favorite page.
+"""
+
 import time
 import unittest
 

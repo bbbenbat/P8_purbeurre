@@ -1,6 +1,7 @@
 # !/usr/bin/env python
 # -*- coding: utf-8 -*-
-"""  """
+""" This module save products into database.
+It uses openffodfacts_api.py and save_data_api.py. """
 import os
 import sys
 

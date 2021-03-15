@@ -1,6 +1,6 @@
 # !/usr/bin/env python
 # -*- coding: utf-8 -*-
-""" This module test the class InfoProd from parser_off file. """
+""" This module test the class ParserOff from parser_off file. """
 
 from django.test import TestCase
 
