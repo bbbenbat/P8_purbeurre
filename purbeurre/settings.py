@@ -41,7 +41,7 @@ SECRET_KEY = get_env_variable('SECRET_KEY',
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['167.99.32.70']
+ALLOWED_HOSTS = []
 
 # Application definition
 
@@ -96,12 +96,12 @@ WSGI_APPLICATION = 'purbeurre.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'purbeurre',
-        'USER': 'purbeurre_admin',
-        'PASSWORD': 'OCRDj@ngo!54BB',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'p8purbeurre',
+        'USER': 'p8purbeurreuser',
+        'PASSWORD': 'Python2021',
         'HOST': 'localhost',
-        'PORT': '',
+        'PORT': '5432',
     }
 }
 
@@ -143,8 +143,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
-#STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # new
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')  # new
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # new
 STATIC_URL = '/static/'  # new
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')  # new
