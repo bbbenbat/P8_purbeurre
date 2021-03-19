@@ -95,14 +95,6 @@ WSGI_APPLICATION = 'purbeurre.wsgi.application'
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
 DATABASES = {
-    """'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'p8purbeurre',
-        'USER': 'p8purbeurreuser',
-        'PASSWORD': 'Python2021',
-        'HOST': 'localhost',
-        'PORT': '5432',
-    }"""
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'purbeurre',
