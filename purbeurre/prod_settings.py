@@ -9,6 +9,6 @@ DATABASES['default'] = dj_database_url.config()
 
 MIDDLEWARE += ['whitenoise.middleware.WhiteNoiseMiddleware']
 
-ALLOWED_HOSTS = ['purbeurre-ocr.herokuapp.com']
+ALLOWED_HOSTS = ['p8purbeurrebb.herokuapp.com']
 
 

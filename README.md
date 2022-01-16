@@ -35,7 +35,7 @@ Add the project :
 ```
 
 #### Local
-Add the application url in the 'prod_settings' file of the 'purbeurre' project:
+Add the application url in the 'purbeurre\prod_settings.py' file of the 'purbeurre' project:
 ALLOWED_HOSTS = ['urlApp']
 
 Updating the database:
