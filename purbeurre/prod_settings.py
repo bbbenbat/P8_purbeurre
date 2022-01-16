@@ -12,3 +12,4 @@ MIDDLEWARE += ['whitenoise.middleware.WhiteNoiseMiddleware']
 ALLOWED_HOSTS = ['p8purbeurrebb.herokuapp.com']
 
 
+
