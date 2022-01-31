@@ -11,6 +11,8 @@ class HomePageView(TemplateView):
 
 
 def favorite_product(request):
+    """ Give the favorite products to the page favorite_product.html . """
+
     current_user = request.user
     favproduct = favorites.Favorites()
     list_prod = favproduct.show_favorite(current_user.id)
@@ -18,6 +20,7 @@ def favorite_product(request):
 
 
 def favorite_save(request):
+    """ Save as favorite the product selected by the user. """
     id_product = request.POST.get('favprod')
     current_user = request.user
     favproduct.save_favorite(id_product, current_user.id)
@@ -27,6 +30,8 @@ def favorite_save(request):
 
 
 def favorite_update(request):
+    """ Update the product favorite statut. """
+
     current_user = request.user
     update_user = request.POST.get('favorite_statut')
     id_product = request.POST.get('id_product')
@@ -35,6 +40,8 @@ def favorite_update(request):
 
 
 def product_research(request):
+    """ Return a list of product according to the written product. """
+
     request_user = request.POST.get('question').lower()
     if request_user == '':
         return render(request, 'home.html')
@@ -58,6 +65,8 @@ def product_research(request):
 
 
 def info_product(request):
+    """ Return the information about the selected product. """
+
     prod_id = request.POST.get('prod_id')
     infoprod = info_prod.InfoProd()
     list_all = infoprod.find_product(prod_id)
@@ -81,8 +90,12 @@ def info_product(request):
 
 
 def legal(request):
+    """ Return the legal page. """
+
     return render(request, 'legal/legal.html')
 
 
 def profil_user(request):
+    """ Return the account page. """
+
     return render(request, 'account/profil_user.html')

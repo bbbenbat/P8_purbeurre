@@ -13,7 +13,7 @@ class Favorites:
     """ This class allows to find and save the user's favorite products. """
 
     def show_favorite(self, r_user):
-        """ This method allows to find the user's favorite products. """
+        """ This method allows to see the user's favorite products. """
         favorites = Favorite.objects.filter(id_user=r_user).order_by('-date')
         list_prod = []
         for req in favorites:

@@ -33,7 +33,7 @@ class BestResearch:
         return list_cat
 
     def find_best_product(self, req):
-        """ Find the products with the 3 most frequent categories. """
+        """ Find the products with the 3 categories most frequency. """
         list_cat = req
         list_cat_id = sorted(
             list_cat.items(), key=lambda t: t[1], reverse=True)[:3]

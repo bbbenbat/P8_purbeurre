@@ -37,6 +37,17 @@ Add the project :
 #### Local
 Add the application url in the 'purbeurre\prod_settings.py' file of the 'purbeurre' project:
 ALLOWED_HOSTS = ['urlApp']
+Change the parameters in the 'purbeurre\settings.py' file of the 'purbeurre' project:
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'p8purbeurre',
+        'USER': 'p8purbeurreuser',
+        'PASSWORD': 'Python2021',
+        'HOST': 'localhost',
+        'PORT': '5432',
+    }
+}
 
 Updating the database:
 - creation of tables
@@ -44,6 +55,7 @@ Updating the database:
 - feeding tables from the Openfoodfacts API
 
 ```
+> git push heroku master
 > heroku run bash -a yourApp
 >> python manage.py makemigrations accounts
 >> python manage.py migrate accounts
