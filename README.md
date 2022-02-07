@@ -21,20 +21,24 @@ Download the 'purbeurre' file from the github repository
 #### Heroku
 Create the application:
 - 'New'
-- 'Create new app')
+- 'Create new app'
+- Enter the name's application.
 
 Create the database:
 - click on the application
 - 'Resources'
 - 'Add-ons'
-- 'Heroku Postgres'
+- Enter 'Heroku Postgres' in the search bar
+- Click on 'Heroku Postgres' to install it
 
-Add the project :
+
+#### Local
+
+Add the project from your virtual environment :
 ```
 > heroku git:remote -a yourApp 
 ```
 
-#### Local
 Add the application url in the 'purbeurre\prod_settings.py' file of the 'purbeurre' project:
 ALLOWED_HOSTS = ['urlApp']
 Change the parameters in the 'purbeurre\settings.py' file of the 'purbeurre' project:
