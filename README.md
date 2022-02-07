@@ -13,18 +13,16 @@ These instructions will get you to install the application on heroku.
 You have to create an account to Heroku (https://signup.heroku.com) and AWS
 (https://portal.aws.amazon.com/billing/signup#/start).
 
-Download the 'purbeurre' file from the github repository
-(https://github.com/bbbenbat/purbeurre.git).
 
 ### Installing
 
 #### Heroku
-Create the application:
+Create the application :
 - 'New'
 - 'Create new app'
 - Enter the name's application.
 
-Create the database:
+Create the database :
 - click on the application
 - 'Resources'
 - 'Add-ons'
@@ -34,24 +32,36 @@ Create the database:
 
 #### Local
 
+Download the project to your virtual environment :
+```
+git clone 'https://github.com/bbbenbat/P8_purbeurre.git'
+cd P8_purbeurre
+```
+
 Add the project from your virtual environment :
 ```
 > heroku git:remote -a yourApp 
 ```
 
-Add the application url in the 'purbeurre\prod_settings.py' file of the 'purbeurre' project:
+Add the application url in the 'purbeurre\prod_settings.py' 
+file of the 'purbeurre' project:
+```
 ALLOWED_HOSTS = ['urlApp']
-Change the parameters in the 'purbeurre\settings.py' file of the 'purbeurre' project:
+```
+Change the parameters in the 'purbeurre\settings.py' file 
+of the 'purbeurre' project:
+```
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'p8purbeurre',
-        'USER': 'p8purbeurreuser',
-        'PASSWORD': 'Python2021',
-        'HOST': 'localhost',
+        'NAME': 'Database',
+        'USER': 'User',
+        'PASSWORD': 'Password',
+        'HOST': 'Host',
         'PORT': '5432',
     }
 }
+```
 
 Updating the database:
 - creation of tables
