@@ -29,7 +29,16 @@ Create the database :
 - Enter 'Heroku Postgres' in the search bar
 - Click on 'Heroku Postgres' to install it
 
+Creation of environment variables.
+- setting
+- config var
+```
+DATABASE_URL : HerokuDatabaseURI
 
+DJANGO_SETTINGS_MODULE : purbeurre.prod_settings
+
+SECRET_KEY : DjangoSecretKey
+```
 #### Local
 
 Download the project to your virtual environment :
@@ -87,15 +96,13 @@ Updating the database:
 #### AWS
 
 Go to 'S3':
-- activate the bucket
-- create a user who will be part of "Amazon S3 FullAccess".
-- copy the contents of the media folder into the bucket.
+- create a bucket
+- upload the folder "media" to the bucket
+- create a user who will be part of "AmazonS3FullAccess"
 
 #### Heroku
 
-Creation of environment variables.
-- setting
-- config var
+Add the AWS environment variables :
 
 AWS_ACCESS_KEY_ID : yourAWSUserIdKey
 
@@ -105,11 +112,7 @@ AWS_SECRET_ACCESS_KEY : yourAWSUserAccessKey
 
 AWS_STORAGE_BUCKET_NAME : yourAWSBucketName
 
-DATABASE_URL HerokuDatabaseURI
 
-DJANGO_SETTINGS_MODULE : purbeurre.prod_settings
-
-SECRET_KEY : DjangoSecretKey
 
 
 ## How to use
