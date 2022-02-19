@@ -97,17 +97,10 @@ WSGI_APPLICATION = 'purbeurre.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-<<<<<<< HEAD
         'NAME': os.environ.get('DB_NAME'),
         'USER': os.environ.get('DB_USER'),
         'PASSWORD': os.environ.get('DB_PASSWORD'),
         'HOST': os.environ.get('DB_HOST'),
-=======
-        'NAME': 'TO-COMPLETE',
-        'USER': 'TO-COMPLETE',
-        'PASSWORD': 'TO-COMPLETE',
-        'HOST': 'ec2-18-203-64-130.eu-west-1.compute.amazonaws.com',
->>>>>>> e7c1ee734be875e8d4a14d811fef9d8174cea420
         'PORT': '5432',
     }
 }
