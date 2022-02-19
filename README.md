@@ -38,6 +38,14 @@ DATABASE_URL : HerokuDatabaseURI
 DJANGO_SETTINGS_MODULE : purbeurre.prod_settings
 
 SECRET_KEY : DjangoSecretKey
+
+DB_HOST : HerokuDatabaseHost
+
+DB_NAME : HerokuDatabaseName
+
+DB_PASSWORD : HerokuDatabasePassword
+
+DB_USER : HerokuDatabaseUser 
 ```
 #### Local
 
@@ -56,20 +64,6 @@ Add the application url in the 'purbeurre\prod_settings.py'
 file of the 'purbeurre' project:
 ```
 ALLOWED_HOSTS = ['urlApp']
-```
-Change the parameters in the 'purbeurre\settings.py' file 
-of the 'purbeurre' project:
-```
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'Database',
-        'USER': 'User',
-        'PASSWORD': 'Password',
-        'HOST': 'Host',
-        'PORT': '5432',
-    }
-}
 ```
 
 Updating the database:
@@ -112,9 +106,6 @@ AWS_SECRET_ACCESS_KEY : yourAWSUserAccessKey
 
 AWS_STORAGE_BUCKET_NAME : yourAWSBucketName
 
-
-
-
 ## How to use
 
 Enter a product in the search bar.
@@ -140,7 +131,7 @@ Please go [CONTRIBUTING.md](https://github.com/bbbenbat/purbeurre/pulls) for sub
 
 ## Versioning
 
-Version 0.1
+Version 0.2
 
 ## Authors
 
