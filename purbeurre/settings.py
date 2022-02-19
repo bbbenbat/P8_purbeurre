@@ -97,9 +97,9 @@ WSGI_APPLICATION = 'purbeurre.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'db4o32u7lvl94a',
-        'USER': 'ngdjypnkyjbtlq',
-        'PASSWORD': 'fb0fc35be4acf2bcf45e110843b1a2061bd77186fb86ab37bfa5f6ea6409e65d',
+        'NAME': 'TO-COMPLETE',
+        'USER': 'TO-COMPLETE',
+        'PASSWORD': 'TO-COMPLETE',
         'HOST': 'ec2-18-203-64-130.eu-west-1.compute.amazonaws.com',
         'PORT': '5432',
     }
