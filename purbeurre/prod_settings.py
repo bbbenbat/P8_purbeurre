@@ -2,8 +2,8 @@ import dj_database_url
 
 from purbeurre.settings import *
 
-DEBUG = False
-TEMPLATE_DEBUG = False
+DEBUG = True
+TEMPLATE_DEBUG = True
 
 DATABASES['default'] = dj_database_url.config()
 
